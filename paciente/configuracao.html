@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PsiqueLine – Configurações</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
+
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <span class="logo-psique">Psique</span><span class="logo-line">Line</span>
+            </div>
+            <div class="sidebar-user">
+                <div class="sidebar-user-avatar">MF</div>
+                <div class="sidebar-user-info">
+                    <h4>Maria Fernandes</h4>
+                    <p>Paciente</p>
+                </div>
+            </div>
+        </div>
+       <div class="sidebar-nav">
+            <a href="home.html" class="nav-item"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
+            <a href="consultas.html" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Minhas Consultas</span></a>
+            <a href="psicologo.html" class="nav-item"><i class="fas fa-user-md"></i><span>Psicólogos</span></a>
+            <a href="progresso.html" class="nav-item"><i class="fas fa-chart-line"></i><span>Meu Progresso</span></a>
+            <a href="pagamento.html" class="nav-item"><i class="fas fa-credit-card"></i><span>Pagamentos</span></a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="top-bar">
+            <div class="page-title">
+                <h1>Configurações</h1>
+                <p>Gerencie suas preferências e dados pessoais</p>
+            </div>
+            <div class="top-bar-actions">
+                <div class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></div>
+
+                <!-- Notificações Dropdown -->
+                <div class="dropdown" id="notifDropdown">
+                    <div class="notification-btn" id="notifBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="dropdown-menu" id="notifMenu">
+                        <div class="dropdown-header">
+                            <i class="fas fa-bell"></i> Notificações
+                            <span class="mark-all-read">Marcar todas como lidas</span>
+                        </div>
+                        <div class="dropdown-item unread">
+                            <i class="fas fa-calendar-check"></i>
+                            <div class="dropdown-item-content">
+                                <div class="dropdown-item-title">Consulta confirmada</div>
+                                <div class="dropdown-item-description">Dr. António Sebastião - 15/01 às 09:00</div>
+                                <div class="dropdown-item-time">Há 5 minutos</div>
+                            </div>
+                            <div class="unread-dot"></div>
+                        </div>
+                        <div class="dropdown-item unread">
+                            <i class="fas fa-chart-line"></i>
+                            <div class="dropdown-item-content">
+                                <div class="dropdown-item-title">Novo relatório de progresso</div>
+                                <div class="dropdown-item-description">Seu progresso deste mês está disponível</div>
+                                <div class="dropdown-item-time">Há 2 horas</div>
+                            </div>
+                            <div class="unread-dot"></div>
+                        </div>
+                        <div class="dropdown-item">
+                            <i class="fas fa-star"></i>
+                            <div class="dropdown-item-content">
+                                <div class="dropdown-item-title">Avalie sua consulta</div>
+                                <div class="dropdown-item-description">Como foi sua experiência com Dr. Carlos?</div>
+                                <div class="dropdown-item-time">Há 1 dia</div>
+                            </div>
+                        </div>
+                        <div class="dropdown-footer">
+                            <a href="#">Ver todas as notificações</a>
+                        </div>
+                    </div>
+                </div>
+
+               <!-- Perfil Dropdown -->
+                <div class="dropdown" id="profileDropdown">
+                    <div class="user-profile" id="profileBtn">
+                        <div class="profile-avatar">
+                            <img src="https://ui-avatars.com/api/?background=2D7DD2&color=fff&name=Maria+Fernandes" alt="Avatar">
+                            <span class="online-status"></span>
+                        </div>
+                        <div class="profile-info">
+                            <span class="profile-name">Maria Fernandes</span>
+                            <span class="profile-role">Paciente</span>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                  <div class="dropdown-menu profile-dropdown" id="profileMenu">
+                        <div class="profile-header-dropdown">
+                            <div class="profile-info-dropdown">
+                                <h4>Maria Fernandes</h4>
+                                <p>maria.fernandes@email.com</p>
+                            </div>
+                        </div>
+                        <a class="nav-item" href="configuracao.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Configurações</span>
+                        </a>
+                        <a class="nav-item" href="logout.html">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Sair</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTAINER DE CONFIGURAÇÕES -->
+        <div class="settings-container">
+            <!-- Menu Lateral de Configurações -->
+            <div class="settings-sidebar">
+                <div class="settings-menu">
+                    <div class="menu-item active" data-tab="perfil">
+                        <i class="fas fa-user"></i>
+                        <span>Meu Perfil</span>
+                    </div>
+                    <div class="menu-item" data-tab="seguranca">
+                        <i class="fas fa-lock"></i>
+                        <span>Segurança</span>
+                    </div>
+                    <div class="menu-item" data-tab="notificacoes">
+                        <i class="fas fa-bell"></i>
+                        <span>Notificações</span>
+                    </div>
+                    <div class="menu-item" data-tab="privacidade">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Privacidade</span>
+                    </div>
+                    <div class="menu-item" data-tab="faturamento">
+                        <i class="fas fa-receipt"></i>
+                        <span>Faturamento</span>
+                    </div>
+                    <div class="menu-item" data-tab="ajuda">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Ajuda & Suporte</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conteúdo das Configurações -->
+            <div class="settings-content">
+                <!-- ABA PERFIL -->
+                <div id="tab-perfil" class="settings-tab active">
+                    <div class="settings-header">
+                        <h2><i class="fas fa-user"></i> Meu Perfil</h2>
+                        <p>Gerencie suas informações pessoais</p>
+                    </div>
+                    <div class="settings-card">
+                        <div class="profile-avatar-section">
+                            <div class="profile-avatar-large">
+                                <img src="https://ui-avatars.com/api/?background=2D7DD2&color=fff&name=Maria+Fernandes&size=128" alt="Avatar">
+                                <div class="avatar-edit-btn" onclick="document.getElementById('avatarInput').click()">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                            </div>
+                            <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                            <div class="profile-avatar-info">
+                                <h3>Maria Fernandes</h3>
+                                <p>Membro desde Janeiro de 2024</p>
+                            </div>
+                        </div>
+                        <form id="formPerfil">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label><i class="fas fa-user"></i> Nome Completo</label>
+                                    <input type="text" id="nomeCompleto" value="Maria Fernandes">
+                                </div>
+                                <div class="form-group">
+                                    <label><i class="fas fa-envelope"></i> E-mail</label>
+                                    <input type="email" id="email" value="maria.fernandes@email.com">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label><i class="fas fa-phone"></i> Telefone</label>
+                                    <input type="tel" id="telefone" value="+244 923 456 789">
+                                </div>
+                                <div class="form-group">
+                                    <label><i class="fas fa-calendar-alt"></i> Data de Nascimento</label>
+                                    <input type="date" id="dataNascimento" value="1990-05-15">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label><i class="fas fa-map-marker-alt"></i> Endereço</label>
+                                    <input type="text" id="endereco" value="Talatona, Luanda, Angola">
+                                </div>
+                                <div class="form-group">
+                                    <label><i class="fas fa-flag"></i> Nacionalidade</label>
+                                    <select id="nacionalidade">
+                                        <option value="Angolana" selected>Angolana</option>
+                                        <option value="Portuguesa">Portuguesa</option>
+                                        <option value="Brasileira">Brasileira</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-comment"></i> Bio / Sobre mim</label>
+                                <textarea id="bio" rows="3" placeholder="Conte um pouco sobre você...">Paciente em acompanhamento psicológico desde Janeiro de 2024, buscando melhorar minha qualidade de vida e bem-estar emocional.</textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn-primary" onclick="salvarPerfil()"><i class="fas fa-save"></i> Salvar Alterações</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- ABA SEGURANÇA -->
+                <div id="tab-seguranca" class="settings-tab">
+                    <div class="settings-header">
+                        <h2><i class="fas fa-lock"></i> Segurança</h2>
+                        <p>Gerencie sua senha e segurança da conta</p>
+                    </div>
+                    
+                    <div class="settings-card">
+                        <h3><i class="fas fa-key"></i> Alterar Senha</h3>
+                        <form id="formSenha">
+                            <div class="form-group">
+                                <label><i class="fas fa-lock"></i> Senha Atual</label>
+                                <input type="password" id="senhaAtual" placeholder="Digite sua senha atual">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label><i class="fas fa-key"></i> Nova Senha</label>
+                                    <input type="password" id="novaSenha" placeholder="Mínimo 8 caracteres">
+                                </div>
+                                <div class="form-group">
+                                    <label><i class="fas fa-check"></i> Confirmar Nova Senha</label>
+                                    <input type="password" id="confirmarSenha" placeholder="Digite novamente">
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn-primary" onclick="alterarSenha()"><i class="fas fa-save"></i> Alterar Senha</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3><i class="fas fa-mobile-alt"></i> Verificação em Duas Etapas</h3>
+                        <div class="toggle-switch">
+                            <div class="toggle-info">
+                                <p><strong>Autenticação de dois fatores</strong></p>
+                                <p class="toggle-description">Adicione uma camada extra de segurança à sua conta</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="twoFactor">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div id="twoFactorConfig" style="display: none; margin-top: 1rem;">
+                            <p><i class="fas fa-info-circle"></i> Configure sua autenticação de dois fatores usando o Google Authenticator</p>
+                            <button class="btn-secondary" onclick="configurarTwoFactor()">Configurar</button>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3><i class="fas fa-history"></i> Sessões Ativas</h3>
+                        <div class="sessao-item">
+                            <div class="sessao-info">
+                                <i class="fas fa-laptop"></i>
+                                <div>
+                                    <p><strong>Dispositivo Atual</strong></p>
+                                    <p>Chrome - Windows • Luanda, Angola</p>
+                                    <p class="sessao-data">Ativo agora</p>
+                                </div>
+                            </div>
+                            <span class="sessao-status status-active">Ativo</span>
+                        </div>
+                        <div class="sessao-item">
+                            <div class="sessao-info">
+                                <i class="fas fa-mobile-alt"></i>
+                                <div>
+                                    <p><strong>iPhone 13</strong></p>
+                                    <p>Safari - Luanda, Angola</p>
+                                    <p class="sessao-data">Última atividade: 10/01/2025</p>
+                                </div>
+                            </div>
+                            <button class="btn-remove-sessao" onclick="removerSessao(this)">Remover</button>
+                        </div>
+                        <button class="btn-secondary" onclick="encerrarTodasSessoes()">Encerrar todas as sessões</button>
+                    </div>
+                </div>
+
+                <!-- ABA NOTIFICAÇÕES -->
+                <div id="tab-notificacoes" class="settings-tab">
+                    <div class="settings-header">
+                        <h2><i class="fas fa-bell"></i> Notificações</h2>
+                        <p>Configure como deseja receber notificações</p>
+                    </div>
+                    <div class="settings-card">
+                        <h3><i class="fas fa-envelope"></i> Notificações por E-mail</h3>
+                        <div class="toggle-switch">
+                            <div class="toggle-info">
+                                <p><strong>Confirmação de consultas</strong></p>
+                                <p class="toggle-description">Receba e-mails quando uma consulta for confirmada</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="emailConfirmacao" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-switch">
+                            <div class="toggle-info">
+                                <p><strong>Lembretes de consultas</strong></p>
+                                <p class="toggle-description">Receba lembretes 24 horas antes da consulta</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="emailLembrete" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-switch">
+                            <div class="toggle-info">
+                                <p><strong>Relatórios de progresso</strong></p>
+                                <p class="toggle-description">Receba relatórios mensais do seu progresso</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="emailRelatorio">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="settings-card">
+                        <h3><i class="fas fa-mobile-alt"></i> Notificações Push</h3>
+                        <div class="toggle-switch">
+                            <div class="toggle-info">
+                                <p><strong>Notificações no navegador</strong></p>
+                                <p class="toggle-description">Receba notificações diretamente no seu navegador</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="pushNotificacoes" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ABA PRIVACIDADE -->
+                <div id="tab-privacidade" class="settings-tab">
+                    <div class="settings-header">
+                        <h2><i class="fas fa-shield-alt"></i> Privacidade</h2>
+                        <p>Controle suas informações e dados pessoais</p>
+                    </div>
+                    <div class="settings-card">
+                        <h3><i class="fas fa-eye"></i> Visibilidade do Perfil</h3>
+                        <div class="toggle-switch">
+                            <div class="toggle-info">
+                                <p><strong>Perfil público</strong></p>
+                                <p class="toggle-description">Permitir que psicólogos vejam seu perfil</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="perfilPublico">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-switch">
+                            <div class="toggle-info">
+                                <p><strong>Mostrar progresso público</strong></p>
+                                <p class="toggle-description">Compartilhar seu progresso com a comunidade</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="progressoPublico">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="settings-card">
+                        <h3><i class="fas fa-database"></i> Meus Dados</h3>
+                        <button class="btn-secondary" onclick="solicitarDados()"><i class="fas fa-download"></i> Solicitar meus dados</button>
+                        <button class="btn-danger" onclick="excluirConta()" style="margin-left: 1rem;"><i class="fas fa-trash"></i> Excluir minha conta</button>
+                    </div>
+                </div>
+
+                <!-- ABA FATURAMENTO -->
+                <div id="tab-faturamento" class="settings-tab">
+                    <div class="settings-header">
+                        <h2><i class="fas fa-receipt"></i> Faturamento</h2>
+                        <p>Gerencie suas informações de pagamento</p>
+                    </div>
+                    <div class="settings-card">
+                        <h3><i class="fas fa-credit-card"></i> Métodos de Pagamento</h3>
+                        <div class="payment-method">
+                            <div class="payment-card">
+                                <i class="fab fa-cc-visa"></i>
+                                <div>
+                                    <p><strong>Visa terminada em 1234</strong></p>
+                                    <p>Expira em 12/2026</p>
+                                </div>
+                                <button class="btn-remove" onclick="removerCartao()">Remover</button>
+                            </div>
+                            <button class="btn-secondary" onclick="adicionarCartao()"><i class="fas fa-plus"></i> Adicionar novo cartão</button>
+                        </div>
+                    </div>
+                    <div class="settings-card">
+                        <h3><i class="fas fa-history"></i> Histórico de Faturamento</h3>
+                        <div class="historico-item">
+                            <div>
+                                <p><strong>Consulta - Dr. António Sebastião</strong></p>
+                                <p>15/01/2025 - 8.500 Kz</p>
+                            </div>
+                            <button class="btn-secondary" onclick="baixarRecibo()">Baixar Recibo</button>
+                        </div>
+                        <div class="historico-item">
+                            <div>
+                                <p><strong>Consulta - Dra. Marlene Teixeira</strong></p>
+                                <p>10/01/2025 - 7.500 Kz</p>
+                            </div>
+                            <button class="btn-secondary" onclick="baixarRecibo()">Baixar Recibo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ABA AJUDA -->
+                <div id="tab-ajuda" class="settings-tab">
+                    <div class="settings-header">
+                        <h2><i class="fas fa-question-circle"></i> Ajuda & Suporte</h2>
+                        <p>Encontre respostas para suas dúvidas</p>
+                    </div>
+                    <div class="settings-card">
+                        <h3><i class="fas fa-envelope"></i> Central de Ajuda</h3>
+                        <p>Acesse nossa central de ajuda para tirar dúvidas frequentes</p>
+                        <button class="btn-primary" onclick="abrirCentralAjuda()">Ir para Central de Ajuda</button>
+                    </div>
+                    <div class="settings-card">
+                        <h3><i class="fas fa-headset"></i> Suporte ao Cliente</h3>
+                        <p>Entre em contato com nossa equipe de suporte</p>
+                        <div class="contact-options">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <p><strong>E-mail</strong></p>
+                                    <p>suporte@psiqueline.ao</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <p><strong>Telefone</strong></p>
+                                    <p>+244 900 000 000</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-whatsapp"></i>
+                                <div>
+                                    <p><strong>WhatsApp</strong></p>
+                                    <p>+244 900 000 000</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-secondary" onclick="abrirChat()"><i class="fas fa-comment"></i> Chat ao vivo</button>
+                    </div>
+                    <div class="settings-card">
+                        <h3><i class="fas fa-file-alt"></i> Termos e Políticas</h3>
+                        <button class="btn-secondary" onclick="verTermos()">Termos de Uso</button>
+                        <button class="btn-secondary" onclick="verPolitica()">Política de Privacidade</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Navegação entre abas
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const tabId = this.dataset.tab;
+                
+                // Remove active de todos os menus e tabs
+                document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
+                document.querySelectorAll('.settings-tab').forEach(t => t.classList.remove('active'));
+                
+                // Adiciona active ao menu e tab selecionados
+                this.classList.add('active');
+                document.getElementById(`tab-${tabId}`).classList.add('active');
+            });
+        });
+
+        // Toggle de verificação em duas etapas
+        document.getElementById('twoFactor').addEventListener('change', function() {
+            const configDiv = document.getElementById('twoFactorConfig');
+            if (this.checked) {
+                configDiv.style.display = 'block';
+            } else {
+                configDiv.style.display = 'none';
+            }
+        });
+
+        // Funções das Configurações
+        function salvarPerfil() {
+            mostrarToast('✅ Perfil atualizado com sucesso!', 'success');
+        }
+
+        function alterarSenha() {
+            const senhaAtual = document.getElementById('senhaAtual').value;
+            const novaSenha = document.getElementById('novaSenha').value;
+            const confirmarSenha = document.getElementById('confirmarSenha').value;
+
+            if (!senhaAtual || !novaSenha || !confirmarSenha) {
+                mostrarToast('⚠️ Preencha todos os campos!', 'warning');
+                return;
+            }
+
+            if (novaSenha !== confirmarSenha) {
+                mostrarToast('⚠️ As senhas não coincidem!', 'warning');
+                return;
+            }
+
+            if (novaSenha.length < 8) {
+                mostrarToast('⚠️ A senha deve ter no mínimo 8 caracteres!', 'warning');
+                return;
+            }
+
+            mostrarToast('✅ Senha alterada com sucesso!', 'success');
+            document.getElementById('senhaAtual').value = '';
+            document.getElementById('novaSenha').value = '';
+            document.getElementById('confirmarSenha').value = '';
+        }
+
+        function configurarTwoFactor() {
+            mostrarToast('📱 Configuração de autenticação em duas etapas iniciada!', 'info');
+        }
+
+        function removerSessao(btn) {
+            btn.closest('.sessao-item').remove();
+            mostrarToast('🔓 Sessão removida com sucesso!', 'success');
+        }
+
+        function encerrarTodasSessoes() {
+            mostrarToast('🔒 Todas as sessões foram encerradas!', 'success');
+        }
+
+        function removerCartao() {
+            mostrarToast('💳 Cartão removido com sucesso!', 'success');
+        }
+
+        function adicionarCartao() {
+            mostrarToast('💳 Redirecionando para adicionar cartão...', 'info');
+        }
+
+        function baixarRecibo() {
+            mostrarToast('📄 Recibo baixado com sucesso!', 'success');
+        }
+
+        function solicitarDados() {
+            mostrarToast('📧 Seus dados serão enviados para seu e-mail em até 24h!', 'info');
+        }
+
+        function excluirConta() {
+            if (confirm('Tem certeza que deseja excluir sua conta? Esta ação é irreversível!')) {
+                mostrarToast('⚠️ Solicitação de exclusão de conta enviada!', 'warning');
+            }
+        }
+
+        function abrirCentralAjuda() {
+            mostrarToast('🔍 Redirecionando para Central de Ajuda...', 'info');
+        }
+
+        function abrirChat() {
+            mostrarToast('💬 Iniciando chat ao vivo...', 'info');
+        }
+
+        function verTermos() {
+            mostrarToast('📜 Abrindo Termos de Uso...', 'info');
+        }
+
+        function verPolitica() {
+            mostrarToast('🔒 Abrindo Política de Privacidade...', 'info');
+        }
+
+        function mostrarToast(mensagem, tipo = 'success') {
+            const toast = document.createElement('div');
+            const icon = tipo === 'success' ? 'fa-check-circle' : (tipo === 'warning' ? 'fa-exclamation-triangle' : 'fa-info-circle');
+            const bgColor = tipo === 'success' ? '#10b981' : (tipo === 'warning' ? '#f59e0b' : '#2D7DD2');
+            toast.style.cssText = `
+                position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(100px);
+                background: ${bgColor}; color: white; padding: 12px 24px;
+                border-radius: 50px; z-index: 3000; font-size: 0.9rem;
+                font-weight: 500; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                transition: transform 0.3s ease; pointer-events: none; white-space: nowrap;
+            `;
+            toast.innerHTML = `<i class="fas ${icon}"></i> ${mensagem}`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.style.transform = 'translateX(-50%) translateY(0)', 10);
+            setTimeout(() => {
+                toast.style.transform = 'translateX(-50%) translateY(100px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Avatar upload
+        document.getElementById('avatarInput').addEventListener('change', function(e) {
+            if (e.target.files && e.target.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    document.querySelector('.profile-avatar-large img').src = event.target.result;
+                    mostrarToast('✅ Foto de perfil atualizada!', 'success');
+                };
+                reader.readAsDataURL(e.target.files[0]);
+            }
+        });
+
+        // Dark Mode
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('psiqueline-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        themeToggle.innerHTML = savedTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('psiqueline-theme', newTheme);
+            themeToggle.innerHTML = newTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        });
+
+        // Dropdowns
+        (function() {
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initDropdowns);
+            } else {
+                initDropdowns();
+            }
+
+            function initDropdowns() {
+                const notifBtn = document.getElementById('notifBtn');
+                const notifMenu = document.getElementById('notifMenu');
+                const notifDropdown = document.getElementById('notifDropdown');
+
+                if (notifBtn && notifMenu) {
+                    notifBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        closeAllDropdowns();
+                        notifMenu.classList.toggle('show');
+                    });
+                    notifMenu.addEventListener('click', function(e) { e.stopPropagation(); });
+                }
+
+                const profileBtn = document.getElementById('profileBtn');
+                const profileMenu = document.getElementById('profileMenu');
+                const profileDropdown = document.getElementById('profileDropdown');
+
+                if (profileBtn && profileMenu) {
+                    profileBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        closeAllDropdowns();
+                        profileMenu.classList.toggle('show');
+                    });
+                    profileMenu.addEventListener('click', function(e) { e.stopPropagation(); });
+                }
+
+                function closeAllDropdowns() {
+                    if (notifMenu) notifMenu.classList.remove('show');
+                    if (profileMenu) profileMenu.classList.remove('show');
+                }
+
+                document.addEventListener('click', function(e) {
+                    if (notifDropdown && !notifDropdown.contains(e.target) && notifMenu) notifMenu.classList.remove('show');
+                    if (profileDropdown && !profileDropdown.contains(e.target) && profileMenu) profileMenu.classList.remove('show');
+                });
+            }
+        })();
+    </script>
+
+    <style>
+        /* ==========================================================
+           ESTILOS DA PÁGINA DE CONFIGURAÇÕES
+        ========================================================== */
+        .settings-container {
+            display: flex;
+            gap: 2rem;
+            background: var(--bg-card);
+            border-radius: var(--raio-card);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .settings-sidebar {
+            width: 260px;
+            background: var(--glass-bg);
+            border-right: 1px solid var(--border-color);
+            padding: 1.5rem 0;
+        }
+
+        .settings-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            transition: all var(--transicao);
+            color: var(--text-secondary);
+            border-left: 3px solid transparent;
+        }
+
+        .menu-item:hover {
+            background: var(--glass-bg);
+            color: var(--azul-medio);
+        }
+
+        .menu-item.active {
+            background: linear-gradient(90deg, rgba(45, 125, 210, 0.15), transparent);
+            color: var(--azul-medio);
+            border-left-color: var(--azul-medio);
+        }
+
+        .menu-item i {
+            width: 20px;
+            font-size: 1.1rem;
+        }
+
+        .settings-content {
+            flex: 1;
+            padding: 1.5rem;
+        }
+
+        .settings-tab {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .settings-tab.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .settings-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .settings-header h2 {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .settings-header p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .settings-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .settings-card h3 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Profile Avatar */
+        .profile-avatar-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .profile-avatar-large {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+
+        .profile-avatar-large img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .avatar-edit-btn {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: var(--azul-medio);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transicao);
+        }
+
+        .avatar-edit-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .profile-avatar-info h3 {
+            margin-bottom: 0.2rem;
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .toggle-switch:last-child {
+            border-bottom: none;
+        }
+
+        .toggle-info p {
+            margin-bottom: 0.2rem;
+        }
+
+        .toggle-description {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.3s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+        }
+
+        input:checked + .slider {
+            background-color: var(--azul-medio);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        /* Sessões Ativas */
+        .sessao-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: var(--glass-bg);
+            border-radius: 12px;
+            margin-bottom: 0.8rem;
+        }
+
+        .sessao-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .sessao-info i {
+            font-size: 1.5rem;
+            color: var(--azul-medio);
+        }
+
+        .sessao-data {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .sessao-status {
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+        }
+
+        .btn-remove-sessao {
+            background: none;
+            border: none;
+            color: var(--vermelho);
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .btn-remove-sessao:hover {
+            text-decoration: underline;
+        }
+
+        /* Payment Methods */
+        .payment-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background: var(--glass-bg);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .payment-card i {
+            font-size: 2rem;
+            color: var(--azul-medio);
+        }
+
+        .btn-remove {
+            background: none;
+            border: none;
+            color: var(--vermelho);
+            cursor: pointer;
+        }
+
+        /* Histórico */
+        .historico-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .historico-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Contato */
+        .contact-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            background: var(--glass-bg);
+            border-radius: 12px;
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+            color: var(--azul-medio);
+        }
+
+        .btn-danger {
+            background: var(--vermelho);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all var(--transicao);
+        }
+
+        .btn-danger:hover {
+            background: #dc2626;
+            transform: translateY(-2px);
+        }
+
+        .form-actions {
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .settings-container {
+                flex-direction: column;
+            }
+            .settings-sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .settings-menu {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .menu-item {
+                padding: 0.5rem 1rem;
+            }
+            .profile-avatar-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <style>
+        /* ==========================================================
+           PSIQUELINE – BASE
+        ========================================================== */
+        :root {
+            --bg-primary: #f0f2f5;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #666666;
+            --text-muted: #888888;
+            --border-color: #e0e0e0;
+            --sidebar-bg: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.9);
+            --glass-border: rgba(0, 0, 0, 0.08);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
+            --azul-escuro: #1A4F8A;
+            --azul-medio: #2D7DD2;
+            --azul-claro: #4a9eff;
+            --verde: #10b981;
+            --vermelho: #ef4444;
+            --laranja: #f59e0b;
+            --roxo: #8b5cf6;
+            --raio-card: 16px;
+            --transicao: 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #141824;
+            --bg-card: #1a1f2e;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #707070;
+            --border-color: #2a2f3f;
+            --sidebar-bg: #0f1420;
+            --glass-bg: rgba(26, 31, 46, 0.95);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            transition: all var(--transicao);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
+            z-index: 100;
+            transition: all var(--transicao);
+            overflow-y: auto;
+        }
+        .sidebar-header {
+            padding: 1.8rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1.5rem;
+        }
+        .sidebar-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+        .sidebar-logo .logo-psique { color: var(--azul-escuro); }
+        .sidebar-logo .logo-line { color: var(--azul-medio); }
+        .sidebar-user {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background: var(--glass-bg);
+            border-radius: var(--raio-card);
+            border: 1px solid var(--glass-border);
+        }
+        .sidebar-user-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--azul-medio), var(--azul-claro));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: white;
+        }
+        .sidebar-user-info h4 { font-size: 0.9rem; font-weight: 700; }
+        .sidebar-user-info p { font-size: 0.7rem; color: var(--text-secondary); }
+        .sidebar-nav { padding: 0 1rem; }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.9rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: var(--raio-card);
+            color: var(--text-secondary);
+            transition: all var(--transicao);
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .nav-item i { width: 22px; font-size: 1.1rem; }
+        .nav-item:hover { background: var(--glass-bg); color: var(--azul-medio); transform: translateX(5px); }
+        .nav-item.active {
+            background: linear-gradient(90deg, rgba(45, 125, 210, 0.15), transparent);
+            color: var(--azul-medio);
+            border-left: 3px solid var(--azul-medio);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 1.5rem 2rem;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .page-title h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        .page-title p { color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.2rem; }
+        .top-bar-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            position: relative;
+        }
+        .notification-btn, .theme-toggle {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transicao);
+            color: var(--text-primary);
+        }
+        .notification-btn:hover, .theme-toggle:hover {
+            background: var(--azul-medio);
+            color: white;
+            transform: scale(1.05);
+        }
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--vermelho);
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            font-size: 0.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: var(--glass-bg);
+            padding: 0.3rem 0.8rem 0.3rem 0.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            border: 1px solid var(--glass-border);
+            transition: all var(--transicao);
+        }
+        .user-profile:hover { background: var(--azul-medio); color: white; }
+        .profile-avatar {
+            position: relative;
+            width: 38px;
+            height: 38px;
+        }
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .online-status {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            background: var(--verde);
+            border-radius: 50%;
+            border: 2px solid var(--bg-card);
+        }
+        .profile-info { display: flex; flex-direction: column; }
+        .profile-name { font-size: 0.85rem; font-weight: 600; }
+        .profile-role { font-size: 0.65rem; opacity: 0.7; }
+        .btn-primary {
+            background: var(--azul-medio);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transicao);
+        }
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all var(--transicao);
+            color: var(--text-primary);
+        }
+        .dropdown { position: relative; }
+        .dropdown-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 360px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            display: none;
+            overflow: hidden;
+        }
+        .dropdown-menu.show { display: block; animation: fadeInDown 0.2s ease; }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .dropdown-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+        }
+        .mark-all-read {
+            font-size: 0.7rem;
+            font-weight: normal;
+            color: var(--azul-medio);
+            cursor: pointer;
+        }
+        .dropdown-item {
+            padding: 0.8rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            cursor: pointer;
+            transition: background var(--transicao);
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+        .dropdown-item:hover { background: var(--glass-bg); }
+        .dropdown-item.unread { background: rgba(45, 125, 210, 0.05); }
+        .unread-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--azul-medio);
+            border-radius: 50%;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .dropdown-item i {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass-bg);
+            border-radius: 12px;
+            font-size: 1rem;
+        }
+        .dropdown-item-content { flex: 1; }
+        .dropdown-item-title { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.2rem; }
+        .dropdown-item-description { font-size: 0.7rem; color: var(--text-muted); margin-bottom: 0.2rem; }
+        .dropdown-item-time { font-size: 0.65rem; color: var(--text-muted); }
+        .dropdown-footer { padding: 0.8rem; text-align: center; border-top: 1px solid var(--border-color); }
+        .dropdown-footer a { color: var(--azul-medio); text-decoration: none; font-size: 0.8rem; }
+        .profile-dropdown { width: 280px; }
+        .profile-header-dropdown {
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .profile-info-dropdown h4 { font-size: 0.9rem; margin-bottom: 0.2rem; }
+        .profile-info-dropdown p { font-size: 0.7rem; color: var(--text-muted); }
+        .profile-dropdown .dropdown-item { border-bottom: none; }
+        .divider { height: 1px; background: var(--border-color); margin: 0.5rem 0; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar { width: 80px; }
+            .sidebar-header, .sidebar-user-info, .nav-item span { display: none; }
+            .main-content { margin-left: 80px; }
+        }
+        @media (max-width: 768px) {
+            .form-row { grid-template-columns: 1fr; }
+            .top-bar { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .dropdown-menu { width: 300px; right: -50px; }
+        }
+    </style>
+</body>
+</html>

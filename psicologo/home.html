@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PsiqueLine – Psicólogo Dashboard</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lato:wght@300;400;700;900&display=swap"
+        rel="stylesheet" />
+
+    <!-- Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <span class="logo-psique">Psique</span><span class="logo-line">Line</span>
+            </div>
+            <div class="sidebar-user">
+                <div class="sidebar-user-avatar">AS</div>
+                <div class="sidebar-user-info">
+                    <h4>Dr. António Sebastião</h4>
+                    <p>Psicólogo Clínico</p>
+                </div>
+            </div>
+        </div>
+          <div class="sidebar-nav">
+            <a href="home.html" class="nav-item active"><i
+                    class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
+            <a href="agenda.html" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Minha
+                    Agenda</span></a>
+            <a href="pacientes.html" class="nav-item"><i class="fas fa-users"></i><span>Meus
+                    Pacientes</span></a>
+            <a href="desempenho.html" class="nav-item"><i class="fas fa-chart-line"></i><span>Meu
+                    Desempenho</span></a>
+            <a href="financas.html" class="nav-item"><i
+                    class="fas fa-money-bill"></i><span>Financeiro</span></a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="top-bar">
+            <div class="page-title">
+                <h1>Olá, Dr. António!</h1>
+                <p>Bem-vindo ao seu painel de controle</p>
+            </div>
+            <div class="top-bar-actions">
+                <div class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></div>
+                <!-- Notificações Dropdown -->
+                <div class="dropdown" id="notifDropdown">
+                    <div class="notification-btn" id="notifBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="dropdown-menu" id="notifMenu">
+                        <div class="dropdown-header">
+                            <i class="fas fa-bell"></i> Notificações
+                            <span class="mark-all-read">Marcar todas como lidas</span>
+                        </div>
+                        <div class="dropdown-item unread">
+                            <i class="fas fa-user-plus"></i>
+                            <div class="dropdown-item-content">
+                                <div class="dropdown-item-title">Novo paciente registado</div>
+                                <div class="dropdown-item-description">Maria Silva completou o cadastro</div>
+                                <div class="dropdown-item-time">Há 5 minutos</div>
+                            </div>
+                            <div class="unread-dot"></div>
+                        </div>
+                        <div class="dropdown-item unread">
+                            <i class="fas fa-calendar-check"></i>
+                            <div class="dropdown-item-content">
+                                <div class="dropdown-item-title">Consulta agendada</div>
+                                <div class="dropdown-item-description">João Paulo - Amanhã às 09:00</div>
+                                <div class="dropdown-item-time">Há 1 hora</div>
+                            </div>
+                            <div class="unread-dot"></div>
+                        </div>
+                        <div class="dropdown-item">
+                            <i class="fas fa-chart-line"></i>
+                            <div class="dropdown-item-content">
+                                <div class="dropdown-item-title">Relatório mensal disponível</div>
+                                <div class="dropdown-item-description">Seu desempenho de Janeiro</div>
+                                <div class="dropdown-item-time">Há 3 horas</div>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <i class="fas fa-star"></i>
+                            <div class="dropdown-item-content">
+                                <div class="dropdown-item-title">Nova avaliação recebida</div>
+                                <div class="dropdown-item-description">5 estrelas - ótimo profissional!</div>
+                                <div class="dropdown-item-time">Há 5 horas</div>
+                            </div>
+                        </div>
+                        <div class="dropdown-footer">
+                            <a href="#">Ver todas as notificações</a>
+                        </div>
+                    </div>
+                </div>
+
+               <!-- Perfil Dropdown -->
+               <div class="dropdown" id="profileDropdown">
+                    <div class="admin-profile" id="profileBtn">
+                        <div class="profile-avatar">
+                            <img src="https://ui-avatars.com/api/?background=2D7DD2&color=fff&name=Dr.+António"
+                                alt="Avatar">
+                            <span class="online-status"></span>
+                        </div>
+                        <div class="profile-info">
+                            <span class="profile-name">Dr. António Sebastião</span>
+                            <span class="profile-role">Psicólogo Clínico</span>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown-menu profile-dropdown" id="profileMenu">
+                        <div class="profile-header-dropdown">
+                            
+                            <div class="profile-info-dropdown">
+                                <h4>Dr. António Sebastião</h4>
+                                <p>antonio.sebastiao@psiqueline.ao</p>
+                            </div>
+                        </div>
+                      
+                        <a class="nav-item" href="configuracao.html">
+                            <i class="fas fa-cog"></i> Configurações
+                        </a>
+                        <a class="nav-item" href="logout.html">
+                            <i class="fas fa-sign-out-alt"></i> Sair
+                        </a>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+
+        <!-- CARDS ESTATÍSTICOS -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header"><span>Total de Pacientes</span>
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                </div>
+                <div class="stat-value">47</div>
+                <div class="stat-change positive"><i class="fas fa-arrow-up"></i> +8 este mês</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-header"><span>Consultas Realizadas</span>
+                    <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+                </div>
+                <div class="stat-value">156</div>
+                <div class="stat-change positive"><i class="fas fa-arrow-up"></i> +23 este mês</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-header"><span>Avaliação Média</span>
+                    <div class="stat-icon"><i class="fas fa-star"></i></div>
+                </div>
+                <div class="stat-value">4.9 ★</div>
+                <div class="stat-change positive"><i class="fas fa-arrow-up"></i> +0.2 este mês</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-header"><span>Faturamento (Mês)</span>
+                    <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                </div>
+                <div class="stat-value">204,5K Kz</div>
+                <div class="stat-change positive"><i class="fas fa-arrow-up"></i> +12% vs mês anterior</div>
+            </div>
+        </div>
+
+        <!-- PRÓXIMAS CONSULTAS -->
+        <div class="agenda-card">
+            <div class="agenda-title"><i class="fas fa-calendar-day"></i> Próximas Consultas - Hoje</div>
+            <div class="consulta-item">
+                <div class="consulta-info">
+                    <span class="consulta-hora">09:00</span>
+                    <div>
+                        <div class="consulta-paciente">Maria Fernandes</div>
+                        <div class="consulta-tipo"><i class="fas fa-video"></i> Videochamada</div>
+                    </div>
+                </div>
+                <span class="status-badge status-confirmada">Confirmada</span>
+            </div>
+            <div class="consulta-item">
+                <div class="consulta-info">
+                    <span class="consulta-hora">11:00</span>
+                    <div>
+                        <div class="consulta-paciente">João Paulo Santos</div>
+                        <div class="consulta-tipo"><i class="fas fa-building"></i> Presencial</div>
+                    </div>
+                </div>
+                <span class="status-badge status-confirmada">Confirmada</span>
+            </div>
+            <div class="consulta-item">
+                <div class="consulta-info">
+                    <span class="consulta-hora">14:00</span>
+                    <div>
+                        <div class="consulta-paciente">Carla Mendes</div>
+                        <div class="consulta-tipo"><i class="fas fa-home"></i> Domicílio</div>
+                    </div>
+                </div>
+                <span class="status-badge status-pendente">Pendente</span>
+            </div>
+            <div class="consulta-item">
+                <div class="consulta-info">
+                    <span class="consulta-hora">16:00</span>
+                    <div>
+                        <div class="consulta-paciente">Ricardo Alberto</div>
+                        <div class="consulta-tipo"><i class="fas fa-video"></i> Videochamada</div>
+                    </div>
+                </div>
+                <span class="status-badge status-confirmada">Confirmada</span>
+            </div>
+        </div>
+
+        <!-- GRÁFICOS -->
+        <div class="charts-row">
+            <div class="chart-card">
+                <div class="chart-title"><i class="fas fa-chart-line"></i> Evolução de Consultas (2024)</div>
+                <canvas id="consultasChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title"><i class="fas fa-chart-pie"></i> Distribuição por Tipo</div>
+                <canvas id="tipoChart"></canvas>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // ========================================================
+        // DARK / LIGHT MODE
+        // ========================================================
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('psiqueline-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        themeToggle.innerHTML = savedTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('psiqueline-theme', newTheme);
+            themeToggle.innerHTML = newTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+
+            // Atualizar cores dos gráficos
+            updateChartsColors();
+        });
+
+        // ========================================================
+        // GRÁFICOS
+        // ========================================================
+       // ========================================================
+// GRÁFICOS ESTILIZADOS - VERSÃO PROFISSIONAL
+// ========================================================
+
+let consultasChart, tipoChart;
+
+function initCharts() {
+    const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-secondary').trim() || '#666';
+    const mutedColor = getComputedStyle(document.documentElement).getPropertyValue('--text-muted').trim() || '#888';
+    const bgCard = getComputedStyle(document.documentElement).getPropertyValue('--bg-card').trim() || '#ffffff';
+
+    // ========================================================
+    // GRÁFICO 1: CONSULTAS POR MÊS (LINE CHART)
+    // ========================================================
+    const ctx1 = document.getElementById('consultasChart');
+    if (ctx1) {
+        // Criar gradiente para o preenchimento
+        const gradient = ctx1.getContext('2d').createLinearGradient(0, 0, 0, 250);
+        gradient.addColorStop(0, 'rgba(45, 125, 210, 0.4)');
+        gradient.addColorStop(0.5, 'rgba(45, 125, 210, 0.15)');
+        gradient.addColorStop(1, 'rgba(45, 125, 210, 0.02)');
+
+        consultasChart = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                datasets: [{
+                    label: 'Consultas Realizadas',
+                    data: [12, 15, 18, 22, 25, 28, 32, 35, 38, 42, 45, 48],
+                    borderColor: '#2D7DD2',
+                    borderWidth: 3,
+                    backgroundColor: gradient,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#2D7DD2',
+                    pointBorderColor: '#ffffff',
+                    pointBorderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 9,
+                    pointHoverBackgroundColor: '#4a9eff',
+                    pointHoverBorderColor: '#ffffff',
+                    pointHoverBorderWidth: 3,
+                    pointStyle: 'circle'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
+                plugins: {
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.85)',
+                        titleColor: '#ffffff',
+                        bodyColor: '#a0a0b0',
+                        borderColor: '#2D7DD2',
+                        borderWidth: 1,
+                        cornerRadius: 10,
+                        padding: 10,
+                        displayColors: false,
+                        callbacks: {
+                            label: (context) => {
+                                return `📊 ${context.raw} consultas`;
+                            },
+                            title: (tooltipItems) => {
+                                return `📅 ${tooltipItems[0].label}`;
+                            }
+                        }
+                    },
+                    legend: {
+                        position: 'top',
+                        align: 'center',
+                        labels: {
+                            color: textColor,
+                            font: { size: 11, family: 'Lato, sans-serif', weight: '600' },
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            padding: 15,
+                            boxWidth: 10,
+                            boxHeight: 10
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(128, 128, 128, 0.08)',
+                            drawBorder: false,
+                            lineWidth: 1,
+                            tickLength: 0
+                        },
+                        ticks: {
+                            color: mutedColor,
+                            stepSize: 10,
+                            font: { size: 10, family: 'Lato, sans-serif' },
+                            callback: function(value) {
+                                return value + ' 📋';
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Total de Consultas',
+                            color: mutedColor,
+                            font: { size: 10, weight: '600', family: 'Lato, sans-serif' },
+                            padding: { bottom: 5 }
+                        }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: {
+                            color: mutedColor,
+                            font: { size: 10, family: 'Lato, sans-serif', weight: '500' }
+                        }
+                    }
+                },
+                elements: {
+                    line: {
+                        borderJoin: 'round',
+                        borderCap: 'round'
+                    }
+                },
+                animation: {
+                    duration: 2000,
+                    easing: 'easeInOutQuart',
+                    onComplete: function() {
+                        // Adicionar efeito de brilho após animação
+                        const ctx = this.ctx;
+                        ctx.shadowBlur = 0;
+                    }
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true,
+                    animationDuration: 200
+                }
+            }
+        });
+    }
+
+    // ========================================================
+    // GRÁFICO 2: DISTRIBUIÇÃO POR TIPO (DOUGHNUT CHART)
+    // ========================================================
+    const ctx2 = document.getElementById('tipoChart');
+    if (ctx2) {
+        tipoChart = new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: ['Presencial', 'Videochamada', 'Domicílio'],
+                datasets: [{
+                    data: [45, 35, 20],
+                    backgroundColor: [
+                        'rgba(45, 125, 210, 0.9)',
+                        'rgba(74, 158, 255, 0.9)',
+                        'rgba(139, 92, 246, 0.9)'
+                    ],
+                    borderColor: 'rgba(255, 255, 255, 0.2)',
+                    borderWidth: 2,
+                    hoverOffset: 15,
+                    cutout: '65%',
+                    borderRadius: 10,
+                    spacing: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.85)',
+                        titleColor: '#ffffff',
+                        bodyColor: '#a0a0b0',
+                        borderColor: '#2D7DD2',
+                        borderWidth: 1,
+                        cornerRadius: 10,
+                        callbacks: {
+                            label: function(context) {
+                                const label = context.label || '';
+                                const value = context.raw || 0;
+                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = Math.round((value / total) * 100);
+                                return `${label}: ${value}% (${percentage}% do total)`;
+                            }
+                        }
+                    },
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: textColor,
+                            font: { size: 11, family: 'Lato, sans-serif', weight: '500' },
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            padding: 12,
+                            boxWidth: 10,
+                            boxHeight: 10
+                        }
+                    }
+                },
+                animation: {
+                    animateRotate: true,
+                    animateScale: true,
+                    duration: 1800,
+                    easing: 'easeOutBounce'
+                },
+                layout: {
+                    padding: {
+                        top: 15,
+                        bottom: 15,
+                        left: 15,
+                        right: 15
+                    }
+                }
+            }
+        });
+    }
+}
+
+function updateChartsColors() {
+    const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-secondary').trim() || '#666';
+    const mutedColor = getComputedStyle(document.documentElement).getPropertyValue('--text-muted').trim() || '#888';
+
+    if (consultasChart) {
+        consultasChart.options.plugins.legend.labels.color = textColor;
+        consultasChart.options.scales.y.ticks.color = mutedColor;
+        consultasChart.options.scales.x.ticks.color = mutedColor;
+        consultasChart.options.scales.y.title.color = mutedColor;
+        consultasChart.update();
+    }
+
+    if (tipoChart) {
+        tipoChart.options.plugins.legend.labels.color = textColor;
+        tipoChart.update();
+    }
+}
+
+// Inicializar gráficos quando o DOM estiver pronto
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCharts);
+} else {
+    initCharts();
+}
+
+// Observar mudanças no tema para atualizar cores
+const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'data-theme') {
+            setTimeout(updateChartsColors, 100);
+        }
+    });
+});
+observer.observe(document.documentElement, { attributes: true });
+
+        // ========================================================
+        // DROPDOWNS
+        // ========================================================
+        function closeAllDropdowns() {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => menu.classList.remove('show'));
+        }
+
+        // Simulação de dados dinâmicos
+        console.log('✅ Dashboard do Psicólogo carregado!');
+    </script>
+    <style>
+        /* ==========================================================
+       PSIQUELINE – PSICÓLOGO DASHBOARD
+       Design profissional e futurista
+    ========================================================== */
+
+        /* Light Mode (padrão) */
+        :root {
+            --bg-primary: #f0f2f5;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #666666;
+            --text-muted: #888888;
+            --border-color: #e0e0e0;
+            --sidebar-bg: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.9);
+            --glass-border: rgba(0, 0, 0, 0.08);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
+            --azul-escuro: #1A4F8A;
+            --azul-medio: #2D7DD2;
+            --azul-claro: #4a9eff;
+            --verde: #10b981;
+            --vermelho: #ef4444;
+            --laranja: #f59e0b;
+            --roxo: #8b5cf6;
+            --raio-card: 16px;
+            --transicao: 0.3s ease;
+        }
+
+        /* Dark Mode */
+        [data-theme="dark"] {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #141824;
+            --bg-card: #1a1f2e;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #707070;
+            --border-color: #2a2f3f;
+            --sidebar-bg: #0f1420;
+            --glass-bg: rgba(26, 31, 46, 0.95);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            transition: background var(--transicao), color var(--transicao);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
+            z-index: 100;
+            transition: all var(--transicao);
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.8rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .sidebar-logo .logo-psique {
+            color: var(--azul-escuro);
+        }
+
+        .sidebar-logo .logo-line {
+            color: var(--azul-medio);
+        }
+
+        .sidebar-user {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background: var(--glass-bg);
+            border-radius: var(--raio-card);
+            border: 1px solid var(--glass-border);
+        }
+
+        .sidebar-user-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--azul-medio), var(--azul-claro));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: white;
+        }
+
+        .sidebar-user-info h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .sidebar-user-info p {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+        }
+
+        .sidebar-nav {
+            padding: 0 1rem;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.9rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: var(--raio-card);
+            color: var(--text-secondary);
+            transition: all var(--transicao);
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .nav-item i {
+            width: 22px;
+            font-size: 1.1rem;
+        }
+
+        .nav-item:hover {
+            background: var(--glass-bg);
+            color: var(--azul-medio);
+            transform: translateX(5px);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(90deg, rgba(45, 125, 210, 0.15), transparent);
+            color: var(--azul-medio);
+            border-left: 3px solid var(--azul-medio);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 1.5rem 2rem;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .page-title p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: 0.2rem;
+        }
+
+        .top-bar-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            position: relative;
+        }
+
+        .notification-btn,
+        .theme-toggle {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transicao);
+            color: var(--text-primary);
+        }
+
+        .notification-btn:hover,
+        .theme-toggle:hover {
+            background: var(--azul-medio);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--vermelho);
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            font-size: 0.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .admin-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: var(--glass-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            border: 1px solid var(--glass-border);
+            transition: all var(--transicao);
+        }
+
+        .admin-profile:hover {
+            background: var(--azul-medio);
+            color: white;
+        }
+
+        /* Botões */
+        .btn-primary {
+            background: var(--azul-medio);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transicao);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            background: var(--azul-claro);
+            transform: translateY(-2px);
+        }
+
+        /* Cards Estatísticos */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--raio-card);
+            padding: 1.3rem;
+            transition: all var(--transicao);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--azul-medio);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .stat-header span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(45, 125, 210, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--azul-medio);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-change {
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .stat-change.positive {
+            color: var(--verde);
+        }
+
+        /* Cards de Próximas Consultas */
+        .agenda-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--raio-card);
+            padding: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .agenda-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .consulta-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            transition: all var(--transicao);
+        }
+
+        .consulta-item:hover {
+            background: var(--glass-bg);
+            border-radius: 12px;
+        }
+
+        .consulta-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .consulta-hora {
+            background: var(--azul-medio);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .consulta-paciente {
+            font-weight: 700;
+        }
+
+        .consulta-tipo {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .status-confirmada {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--verde);
+        }
+
+        .status-pendente {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--laranja);
+        }
+
+        /* Gráficos */
+        .charts-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--raio-card);
+            padding: 1.3rem;
+        }
+
+        .chart-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        canvas {
+            max-height: 250px;
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 80px;
+            }
+
+            .sidebar-header,
+            .sidebar-user-info,
+            .nav-item span {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 80px;
+            }
+
+            .charts-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+    </style>
+    <script>
+        // ========================================================
+        // DROPDOWNS DE NOTIFICAÇÕES E PERFIL
+        // ========================================================
+
+        (function () {
+            'use strict';
+
+            // Aguardar o DOM carregar completamente
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initDropdowns);
+            } else {
+                initDropdowns();
+            }
+
+            function initDropdowns() {
+
+                // ========================================================
+                // 1. DROPDOWN DE NOTIFICAÇÕES
+                // ========================================================
+                const notifBtn = document.getElementById('notifBtn');
+                const notifMenu = document.getElementById('notifMenu');
+                const notifDropdown = document.getElementById('notifDropdown');
+
+                if (notifBtn && notifMenu) {
+                    // Abrir/fechar ao clicar no botão
+                    notifBtn.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        e.preventDefault();
+
+                        // Fechar outros dropdowns
+                        closeAllDropdowns();
+
+                        // Alternar o dropdown de notificações
+                        notifMenu.classList.toggle('show');
+
+                        // Simular marcação como lido ao abrir (opcional)
+                        if (notifMenu.classList.contains('show')) {
+                            const badge = notifBtn.querySelector('.notification-badge');
+                            if (badge && badge.textContent !== '0') {
+                                // Marcar como visualizado após 2 segundos
+                                setTimeout(() => {
+                                    if (!notifMenu.classList.contains('show')) {
+                                        // badge.style.display = 'none';
+                                    }
+                                }, 2000);
+                            }
+                        }
+                    });
+
+                    // Prevenir fechamento ao clicar dentro do menu
+                    notifMenu.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                    });
+                }
+
+                // ========================================================
+                // 2. DROPDOWN DE PERFIL
+                // ========================================================
+                const profileBtn = document.getElementById('profileBtn');
+                const profileMenu = document.getElementById('profileMenu');
+                const profileDropdown = document.getElementById('profileDropdown');
+
+                if (profileBtn && profileMenu) {
+                    // Abrir/fechar ao clicar no botão
+                    profileBtn.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        e.preventDefault();
+
+                        // Fechar outros dropdowns
+                        closeAllDropdowns();
+
+                        // Alternar o dropdown de perfil
+                        profileMenu.classList.toggle('show');
+                    });
+
+                    // Prevenir fechamento ao clicar dentro do menu
+                    profileMenu.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                    });
+                }
+
+                // ========================================================
+                // 3. FUNÇÃO PARA FECHAR TODOS OS DROPDOWNS
+                // ========================================================
+                function closeAllDropdowns() {
+                    // Fechar dropdown de notificações
+                    if (notifMenu) {
+                        notifMenu.classList.remove('show');
+                    }
+
+                    // Fechar dropdown de perfil
+                    if (profileMenu) {
+                        profileMenu.classList.remove('show');
+                    }
+
+                    // Fechar qualquer outro dropdown que possa existir
+                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                        menu.classList.remove('show');
+                    });
+                }
+
+                // ========================================================
+                // 4. FECHAR DROPDOWNS AO CLICAR FORA
+                // ========================================================
+                document.addEventListener('click', function (e) {
+                    // Verificar se o clique foi fora do dropdown de notificações
+                    if (notifDropdown && !notifDropdown.contains(e.target)) {
+                        if (notifMenu) notifMenu.classList.remove('show');
+                    }
+
+                    // Verificar se o clique foi fora do dropdown de perfil
+                    if (profileDropdown && !profileDropdown.contains(e.target)) {
+                        if (profileMenu) profileMenu.classList.remove('show');
+                    }
+                });
+
+                // ========================================================
+                // 5. FECHAR DROPDOWNS AO PRESSIONAR ESC
+                // ========================================================
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape') {
+                        closeAllDropdowns();
+                    }
+                });
+
+                // ========================================================
+                // 6. FUNCIONALIDADES DOS ITENS DO DROPDOWN
+                // ========================================================
+
+                // Itens de notificações
+                const notifItems = document.querySelectorAll('#notifMenu .dropdown-item');
+                notifItems.forEach(item => {
+                    item.addEventListener('click', function (e) {
+                        e.stopPropagation();
+
+                        // Remover badge de notificação
+                        const badge = document.querySelector('.notification-badge');
+                        if (badge) {
+                            const currentCount = parseInt(badge.textContent);
+                            if (currentCount > 0) {
+                                const newCount = currentCount - 1;
+                                badge.textContent = newCount;
+                                if (newCount === 0) {
+                                    badge.style.display = 'none';
+                                }
+                            }
+                        }
+
+                        // Fechar dropdown
+                        if (notifMenu) notifMenu.classList.remove('show');
+
+                        // Obter título da notificação
+                        const title = this.querySelector('.dropdown-item-title')?.innerText || 'Notificação';
+                        mostrarToast(`📢 ${title}`, 'info');
+                    });
+                });
+
+                // Itens do perfil
+                const profileItems = document.querySelectorAll('#profileMenu .dropdown-item');
+                profileItems.forEach(item => {
+                    item.addEventListener('click', function (e) {
+                        e.stopPropagation();
+
+                        const text = this.innerText.trim();
+
+                        switch (text) {
+                            case 'Meu Perfil':
+                                mostrarToast('👤 Redirecionando para seu perfil...', 'info');
+                                // window.location.href = 'perfil-psicologo.html';
+                                break;
+                            case 'Configurações':
+                                mostrarToast('⚙️ Abrindo configurações...', 'info');
+                                // window.location.href = 'configuracoes.html';
+                                break;
+                            case 'Ajuda':
+                                mostrarToast('❓ Abrindo central de ajuda...', 'info');
+                                // window.location.href = 'ajuda.html';
+                                break;
+                            case 'Sair':
+                                if (confirm('Tem certeza que deseja sair da sua conta?')) {
+                                    mostrarToast('🔓 Saindo da plataforma...', 'success');
+                                    setTimeout(() => {
+                                        // window.location.href = 'login.html';
+                                    }, 1500);
+                                }
+                                break;
+                            default:
+                                mostrarToast(`🔔 ${text}`, 'info');
+                        }
+
+                        // Fechar dropdown
+                        if (profileMenu) profileMenu.classList.remove('show');
+                    });
+                });
+
+                // ========================================================
+                // 7. FUNÇÃO PARA EXIBIR TOAST
+                // ========================================================
+                function mostrarToast(mensagem, tipo = 'success') {
+                    // Remover toast existente
+                    const existingToast = document.querySelector('.custom-toast');
+                    if (existingToast) existingToast.remove();
+
+                    // Criar novo toast
+                    const toast = document.createElement('div');
+                    toast.className = 'custom-toast';
+
+                    let icon = 'fa-info-circle';
+                    let bgColor = 'var(--azul-medio, #2D7DD2)';
+
+                    if (tipo === 'success') {
+                        icon = 'fa-check-circle';
+                        bgColor = 'var(--verde, #10b981)';
+                    } else if (tipo === 'warning') {
+                        icon = 'fa-exclamation-triangle';
+                        bgColor = 'var(--laranja, #f59e0b)';
+                    } else if (tipo === 'error') {
+                        icon = 'fa-times-circle';
+                        bgColor = 'var(--vermelho, #ef4444)';
+                    }
+
+                    toast.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%) translateY(100px);
+                background: ${bgColor};
+                color: white;
+                padding: 12px 24px;
+                border-radius: 50px;
+                z-index: 3000;
+                font-size: 0.9rem;
+                font-weight: 500;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                transition: transform 0.3s ease;
+                pointer-events: none;
+                white-space: nowrap;
+                font-family: 'Lato', sans-serif;
+            `;
+                    toast.innerHTML = `<i class="fas ${icon}"></i> ${mensagem}`;
+                    document.body.appendChild(toast);
+
+                    // Animar entrada
+                    setTimeout(() => {
+                        toast.style.transform = 'translateX(-50%) translateY(0)';
+                    }, 10);
+
+                    // Remover após 3 segundos
+                    setTimeout(() => {
+                        toast.style.transform = 'translateX(-50%) translateY(100px)';
+                        setTimeout(() => toast.remove(), 300);
+                    }, 3000);
+                }
+
+                // ========================================================
+                // 8. SIMULAR NOVAS NOTIFICAÇÕES (DEMO)
+                // ========================================================
+                function simularNovaNotificacao() {
+                    const badge = document.querySelector('.notification-badge');
+                    if (badge) {
+                        const currentCount = parseInt(badge.textContent);
+                        const newCount = currentCount + 1;
+                        badge.textContent = newCount;
+                        if (badge.style.display === 'none') {
+                            badge.style.display = 'flex';
+                        }
+
+                        // Adicionar nova notificação ao menu
+                        if (notifMenu) {
+                            const newNotif = document.createElement('div');
+                            newNotif.className = 'dropdown-item';
+                            newNotif.innerHTML = `
+                        <i class="fas fa-bell"></i>
+                        <div class="dropdown-item-content">
+                            <div class="dropdown-item-title">Nova atividade na plataforma</div>
+                            <div class="dropdown-item-time">Agora mesmo</div>
+                        </div>
+                    `;
+                            newNotif.addEventListener('click', function (e) {
+                                e.stopPropagation();
+                                mostrarToast('Nova notificação visualizada', 'info');
+                                if (notifMenu) notifMenu.classList.remove('show');
+                            });
+                            notifMenu.insertBefore(newNotif, notifMenu.children[1]);
+                        }
+
+                        mostrarToast('🔔 Nova notificação recebida!', 'info');
+                    }
+                }
+
+                // Expor função global para simular notificações (opcional)
+                window.simularNovaNotificacao = simularNovaNotificacao;
+
+                // ========================================================
+                // 9. ATUALIZAR BADGE DE NOTIFICAÇÃO
+                // ========================================================
+                function atualizarBadgeNotificacao(count) {
+                    const badge = document.querySelector('.notification-badge');
+                    if (badge) {
+                        if (count > 0) {
+                            badge.textContent = count;
+                            badge.style.display = 'flex';
+                        } else {
+                            badge.style.display = 'none';
+                        }
+                    }
+                }
+
+                // Expor funções globalmente
+                window.closeAllDropdowns = closeAllDropdowns;
+                window.atualizarBadgeNotificacao = atualizarBadgeNotificacao;
+
+                console.log('✅ Dropdowns de notificações e perfil inicializados!');
+            }
+        })();
+    </script>
+
+    <style>
+        /* ========================================================
+   ESTILOS MELHORADOS PARA GRÁFICOS
+======================================================== */
+
+/* Container dos gráficos */
+.chart-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--raio-card);
+    padding: 1.3rem;
+    transition: all var(--transicao);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de gradiente no topo do card */
+.chart-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--azul-medio), var(--azul-claro), var(--roxo));
+}
+
+/* Efeito hover no card */
+.chart-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Título do gráfico */
+.chart-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    position: relative;
+    z-index: 1;
+}
+
+.chart-title i {
+    color: var(--azul-medio);
+    font-size: 1.1rem;
+    background: rgba(45, 125, 210, 0.1);
+    padding: 6px;
+    border-radius: 10px;
+}
+
+/* Animação de entrada para os gráficos */
+.chart-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Atrasos nas animações */
+.chart-card:first-child {
+    animation-delay: 0.1s;
+}
+.chart-card:last-child {
+    animation-delay: 0.2s;
+}
+
+/* Container do canvas */
+canvas {
+    max-height: 250px;
+    width: 100% !important;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    canvas {
+        max-height: 200px;
+    }
+    
+    .chart-title {
+        font-size: 0.9rem;
+    }
+}
+
+/* Dark mode específico para gráficos */
+[data-theme="dark"] .chart-card {
+    background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+}
+
+[data-theme="dark"] .chart-title i {
+    background: rgba(45, 125, 210, 0.15);
+}
+
+/* Tooltip personalizado para gráficos */
+.chartjs-tooltip {
+    opacity: 0;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 12px;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(45, 125, 210, 0.5);
+}
+
+/* Legenda personalizada */
+.chart-legend {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transicao);
+}
+
+.legend-item:hover {
+    transform: translateY(-2px);
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.legend-color.line {
+    width: 20px;
+    height: 3px;
+    border-radius: 2px;
+}
+        /* ========================================================
+       TOP NAVBAR ESTILIZADO
+======================================================== */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 280px;
+            right: 0;
+            height: 70px;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 99;
+            transition: all var(--transicao);
+        }
+
+        /* Menu Mobile */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            margin-right: 1rem;
+            padding: 0.5rem;
+        }
+
+        /* Logo */
+        .navbar-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .logo-psique {
+            color: var(--azul-escuro);
+        }
+
+        .logo-line {
+            color: var(--azul-medio);
+        }
+
+        /* Busca */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 40px;
+            padding: 0.4rem 1rem;
+            gap: 0.5rem;
+        }
+
+        .search-bar i {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .search-bar input {
+            background: none;
+            border: none;
+            outline: none;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            width: 250px;
+        }
+
+        .search-bar kbd {
+            background: var(--border-color);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+        }
+
+        /* Ações direita */
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .action-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all var(--transicao);
+            color: var(--text-primary);
+        }
+
+        .action-btn:hover {
+            background: var(--azul-medio);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Notificações */
+        .notification-btn {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all var(--transicao);
+            color: var(--text-primary);
+        }
+
+        .notification-btn:hover {
+            background: var(--azul-medio);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--vermelho);
+            color: white;
+            font-size: 0.6rem;
+            font-weight: 600;
+            min-width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+        }
+
+        /* Perfil Admin */
+        .admin-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: var(--glass-bg);
+            padding: 0.3rem 0.8rem 0.3rem 0.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            border: 1px solid var(--glass-border);
+            transition: all var(--transicao);
+        }
+
+        .admin-profile:hover {
+            background: var(--azul-medio);
+            color: white;
+        }
+
+        .profile-avatar {
+            position: relative;
+            width: 38px;
+            height: 38px;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .online-status {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            background: var(--verde);
+            border-radius: 50%;
+            border: 2px solid var(--bg-card);
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .profile-role {
+            font-size: 0.65rem;
+            opacity: 0.7;
+        }
+
+        .admin-profile i {
+            font-size: 0.8rem;
+            transition: transform var(--transicao);
+        }
+
+        .admin-profile:hover i {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 360px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            display: none;
+            overflow: hidden;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+            animation: fadeInDown 0.2s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .mark-all-read {
+            font-size: 0.7rem;
+            font-weight: normal;
+            color: var(--azul-medio);
+            cursor: pointer;
+        }
+
+        .dropdown-item {
+            padding: 0.8rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            cursor: pointer;
+            transition: background var(--transicao);
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .dropdown-item:hover {
+            background: var(--glass-bg);
+        }
+
+        .dropdown-item.unread {
+            background: rgba(45, 125, 210, 0.05);
+        }
+
+        .unread-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--azul-medio);
+            border-radius: 50%;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .dropdown-item i {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass-bg);
+            border-radius: 12px;
+            font-size: 1rem;
+        }
+
+        .dropdown-item-content {
+            flex: 1;
+        }
+
+        .dropdown-item-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .dropdown-item-description {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-bottom: 0.2rem;
+        }
+
+        .dropdown-item-time {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+        }
+
+        .dropdown-footer {
+            padding: 0.8rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .dropdown-footer a {
+            color: var(--azul-medio);
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+
+        /* Profile Dropdown */
+        .profile-dropdown {
+            width: 280px;
+        }
+
+        .profile-header-dropdown {
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .profile-avatar-large {
+            width: 50px;
+            height: 50px;
+        }
+
+        .profile-avatar-large img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-info-dropdown h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .profile-info-dropdown p {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .profile-dropdown .dropdown-item {
+            border-bottom: none;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border-color);
+            margin: 0.5rem 0;
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .top-navbar {
+                left: 80px;
+            }
+
+            .search-bar input {
+                width: 150px;
+            }
+
+            .profile-info {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-navbar {
+                left: 0;
+                padding: 0 1rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .navbar-center {
+                display: none;
+            }
+
+            .profile-info {
+                display: none;
+            }
+
+            .dropdown-menu {
+                width: 300px;
+                right: -50px;
+            }
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            width: 320px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            display: none;
+            overflow: hidden;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+            animation: fadeIn 0.2s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 700;
+        }
+
+        .dropdown-item {
+            padding: 0.8rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            cursor: pointer;
+            transition: background var(--transicao);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .dropdown-item:hover {
+            background: var(--glass-bg);
+        }
+
+        .dropdown-item i {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass-bg);
+            border-radius: 50%;
+        }
+
+        .dropdown-item-content {
+            flex: 1;
+        }
+
+        .dropdown-item-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .dropdown-item-time {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .profile-dropdown {
+            width: 220px;
+        }
+
+        .profile-dropdown .dropdown-item {
+            border-bottom: none;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border-color);
+            margin: 0.5rem 0;
+        }
+    </style>
+</body>
+
+</html>

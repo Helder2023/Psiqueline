@@ -1,0 +1,938 @@
+/* ==========================================================
+   PSIQUELINE – FOLHA DE ESTILOS COMPLETA
+   Paleta: Branco (#FFFFFF) + Azul (#1A4F8A / #2D7DD2)
+   Fonte título: Playfair Display
+   Fonte corpo: Lato
+========================================================== */
+
+/* ----------------------------------------------------------
+   VARIÁVEIS GLOBAIS DE COR E TIPOGRAFIA
+   Centraliza todos os valores para fácil alteração
+---------------------------------------------------------- */
+:root {
+  --azul-escuro: #1A4F8A;
+  /* Azul principal (navbar, botões) */
+  --azul-medio: #2D7DD2;
+  /* Azul médio (destaques, hover) */
+  --azul-claro: #E8F2FB;
+  /* Azul suave (fundos de secção) */
+  --azul-card: #D6E8F7;
+  /* Azul para topo dos cards */
+  --branco: #FFFFFF;
+  --cinza-texto: #444444;
+  /* Texto principal */
+  --cinza-claro: #777777;
+  /* Texto secundário */
+  --cinza-fundo: #F5F8FC;
+  /* Fundo de secções alternadas */
+  --sombra: 0 4px 20px rgba(26, 79, 138, 0.12);
+  --sombra-card: 0 6px 28px rgba(26, 79, 138, 0.14);
+  --raio: 16px;
+  /* Border-radius padrão dos cards */
+  --raio-btn: 50px;
+  /* Border-radius dos botões */
+  --transicao: 0.3s ease;
+}
+
+/* ----------------------------------------------------------
+   RESET BÁSICO – Remove margens e paddings padrão do browser
+---------------------------------------------------------- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  scroll-behavior: smooth;
+}
+
+/* ----------------------------------------------------------
+   BODY E TIPOGRAFIA BASE
+---------------------------------------------------------- */
+body {
+  font-family: 'Lato', sans-serif;
+  color: var(--cinza-texto);
+  background-color: var(--branco);
+  overflow-x: hidden;
+  /* Evita scroll horizontal indesejado */
+}
+
+/* Títulos usam a fonte elegante Playfair Display */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ----------------------------------------------------------
+   NAVBAR – Barra de navegação superior fixa
+---------------------------------------------------------- */
+.navbar {
+  position: fixed;
+  /* Fica sempre no topo ao rolar */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  height: 70px;
+  background: var(--branco);
+  box-shadow: 0 2px 15px rgba(26, 79, 138, 0.10);
+}
+
+/* Logo "PsiqueLine" dividido em duas cores */
+.navbar-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.logo-psique {
+  color: var(--azul-escuro);
+}
+.logo-line {
+  color: var(--azul-medio);
+}
+
+/* Links do centro da navbar */
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--cinza-texto);
+  letter-spacing: 0.3px;
+  transition: color var(--transicao);
+  position: relative;
+  padding-bottom: 4px;
+}
+
+/* Linha azul que aparece sob o link ativo/hover */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--azul-medio);
+  transition: width var(--transicao);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--azul-escuro);
+}
+
+/* Botão de Login no canto direito */
+.btn-login {
+  background: var(--azul-escuro);
+  color: var(--branco);
+  padding: 0.5rem 1.4rem;
+  border-radius: var(--raio-btn);
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: background var(--transicao), transform var(--transicao);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-login:hover {
+  background: var(--azul-medio);
+  transform: translateY(-1px);
+}
+
+/* Hamburguer (mobile – escondido em desktop) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--azul-escuro);
+  border-radius: 2px;
+  transition: var(--transicao);
+}
+
+/* ----------------------------------------------------------
+   BOTÕES REUTILIZÁVEIS
+---------------------------------------------------------- */
+
+/* Botão principal azul escuro */
+.btn-primario {
+  display: inline-block;
+  background: var(--azul-escuro);
+  color: var(--branco);
+  padding: 0.8rem 2.2rem;
+  border-radius: var(--raio-btn);
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transicao), transform var(--transicao), box-shadow var(--transicao);
+  box-shadow: 0 4px 14px rgba(26, 79, 138, 0.25);
+}
+
+.btn-primario:hover {
+  background: var(--azul-medio);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(45, 125, 210, 0.30);
+}
+
+/* Variação de largura total (usada no login) */
+.btn-primario.full {
+  width: 100%;
+  text-align: center;
+  padding: 0.9rem;
+}
+
+/* Botão secundário (outline) */
+.btn-secundario {
+  display: inline-block;
+  background: transparent;
+  color: var(--azul-escuro);
+  padding: 0.7rem 2rem;
+  border-radius: var(--raio-btn);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 2px solid var(--azul-escuro);
+  cursor: pointer;
+  transition: all var(--transicao);
+}
+
+.btn-secundario:hover {
+  background: var(--azul-escuro);
+  color: var(--branco);
+}
+
+/* ----------------------------------------------------------
+   HERO – Secção de destaque no topo da página
+---------------------------------------------------------- */
+.hero {
+  min-height: 100vh;
+  /* Ocupa toda a altura do ecrã */
+  background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 2rem 80px;
+  /* Compensa a navbar fixa no topo */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Padrão de círculos decorativos no fundo do hero */
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  top: -100px;
+  right: -100px;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  bottom: 50px;
+  left: -80px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  /* Fica acima dos elementos decorativos */
+}
+
+.hero-titulo {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  /* Tamanho responsivo */
+  color: var(--branco);
+  margin-bottom: 1.2rem;
+  line-height: 1.2;
+}
+
+.hero-subtitulo {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+
+/* Ondas SVG na parte inferior do hero */
+.hero-ondas {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.hero-ondas svg {
+  display: block;
+}
+
+/* ----------------------------------------------------------
+   TÍTULOS DE SECÇÃO – Padrão reutilizável em todo o site
+---------------------------------------------------------- */
+.secao-titulo {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  color: var(--azul-escuro);
+  text-align: center;
+  margin-bottom: 0.6rem;
+}
+
+/* Variação alinhada à esquerda (usada na secção "Sobre") */
+.secao-titulo.left {
+  text-align: left;
+}
+
+.secao-subtitulo {
+  text-align: center;
+  color: var(--cinza-claro);
+  font-size: 1rem;
+  margin-bottom: 3rem;
+}
+
+/* ----------------------------------------------------------
+   ÁREAS DE CONSULTA – Grid de especialidades
+---------------------------------------------------------- */
+.areas {
+  background: var(--cinza-fundo);
+  padding: 5rem 2rem;
+}
+
+/* Grid responsivo: 4 colunas em desktop, menos em mobile */
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Cada card de área/especialidade */
+.area-card {
+  background: var(--branco);
+  border-radius: var(--raio);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--sombra);
+  transition: transform var(--transicao), box-shadow var(--transicao);
+  border-top: 4px solid var(--azul-claro);
+}
+
+.area-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-card);
+  border-top-color: var(--azul-medio);
+}
+
+/* Ícone grande no topo de cada área */
+.area-icone {
+  font-size: 2.2rem;
+  color: var(--azul-medio);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.area-card h3 {
+  font-size: 1rem;
+  color: var(--azul-escuro);
+  margin-bottom: 0.5rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+.area-card p {
+  font-size: 0.88rem;
+  color: var(--cinza-claro);
+  line-height: 1.5;
+}
+
+/* ----------------------------------------------------------
+   PSICÓLOGOS – Grid de cards dos profissionais
+---------------------------------------------------------- */
+.psicologos {
+  padding: 5rem 2rem;
+  background: var(--branco);
+}
+
+/* Grid responsivo: 3 colunas desktop, 2 tablet, 1 mobile */
+.psicologos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ====================================================
+   CARD DO PSICÓLOGO
+   Cada card tem:
+   - .card-topo: fundo azul com a foto e badge de estrela
+   - .card-corpo: nome, área, info rápida, botão
+==================================================== */
+.psi-card {
+  background: var(--branco);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  /* Para o topo arredondado funcionar */
+  transition: transform var(--transicao), box-shadow var(--transicao);
+  cursor: pointer;
+  /* Mostra que é clicável */
+}
+
+.psi-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sombra-card);
+}
+
+/* Topo azul do card (fundo + foto + badge) */
+.card-topo {
+  background: linear-gradient(135deg, var(--azul-escuro), var(--azul-medio));
+  padding: 1.8rem 1.5rem 1rem;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 130px;
+}
+
+/* ====================================================
+   CÍRCULO DA FOTO DO PSICÓLOGO
+   → É aqui que a imagem é colocada
+   → O <img> dentro do .card-foto deve ter src="imagens/psiX.jpg"
+   → Se a imagem não existir, as iniciais (.foto-iniciais) aparecem
+==================================================== */
+.card-foto {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  /* Formato circular */
+  background: var(--branco);
+  border: 3px solid rgba(255,255,255,0.8);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Imagem dentro do círculo */
+.card-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Corta a imagem para preencher o círculo */
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Iniciais exibidas quando a imagem não existe */
+.foto-iniciais {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--azul-escuro);
+  letter-spacing: 1px;
+  z-index: 1;
+}
+
+/* Badge de avaliação (estrela + número) no canto superior direito */
+.card-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255,255,255,0.20);
+  color: var(--branco);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  backdrop-filter: blur(4px);
+}
+
+.card-badge .fa-star {
+  color: #FFD700;
+}
+
+/* Estrela dourada */
+
+/* Corpo branco inferior do card */
+.card-corpo {
+  padding: 1.3rem 1.5rem 1.5rem;
+}
+
+.card-nome {
+  font-size: 1.1rem;
+  color: var(--azul-escuro);
+  margin-bottom: 0.3rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+.card-area {
+  font-size: 0.82rem;
+  color: var(--azul-medio);
+  margin-bottom: 0.9rem;
+  font-weight: 700;
+}
+
+/* Linha com anos e clientes */
+.card-info-rapida {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.card-info-rapida span {
+  font-size: 0.82rem;
+  color: var(--cinza-claro);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.card-info-rapida i {
+  color: var(--azul-medio);
+}
+
+.card-localizacao {
+  font-size: 0.82rem;
+  color: var(--cinza-claro);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.card-localizacao i {
+  color: var(--azul-medio);
+}
+
+/* Botão "Ver Perfil" dentro do card */
+.btn-ver-perfil {
+  width: 100%;
+  padding: 0.65rem;
+  background: var(--azul-claro);
+  color: var(--azul-escuro);
+  border: 2px solid var(--azul-medio);
+  border-radius: var(--raio-btn);
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all var(--transicao);
+}
+
+.btn-ver-perfil:hover {
+  background: var(--azul-escuro);
+  color: var(--branco);
+  border-color: var(--azul-escuro);
+}
+
+/* ----------------------------------------------------------
+   SOBRE NÓS
+---------------------------------------------------------- */
+.sobre {
+  background: var(--azul-claro);
+  padding: 5rem 2rem;
+}
+
+.sobre-conteudo {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.sobre-texto p {
+  line-height: 1.8;
+  color: var(--cinza-texto);
+  margin-bottom: 1rem;
+}
+
+.sobre-texto strong {
+  color: var(--azul-escuro);
+}
+
+/* Números de destaque: clientes, consultas, satisfação */
+.sobre-numeros {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.numero-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.numero {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--azul-escuro);
+  font-weight: 700;
+}
+
+.numero-label {
+  font-size: 0.8rem;
+  color: var(--cinza-claro);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Ícone decorativo do lado direito */
+.sobre-img-placeholder {
+  background: linear-gradient(135deg, var(--azul-escuro), var(--azul-medio));
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  /* Forma orgânica */
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sobre-img-placeholder i {
+  font-size: 6rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ----------------------------------------------------------
+   CONTACTO
+---------------------------------------------------------- */
+.contacto {
+  padding: 4rem 2rem;
+  background: var(--branco);
+  text-align: center;
+}
+
+.contacto-grid {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.contacto-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contacto-item i {
+  font-size: 1.8rem;
+  color: var(--azul-medio);
+}
+
+.contacto-item p {
+  font-size: 0.95rem;
+  color: var(--cinza-texto);
+}
+
+/* ----------------------------------------------------------
+   FOOTER – Rodapé
+---------------------------------------------------------- */
+.footer {
+  background: var(--azul-escuro);
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.85rem;
+}
+
+/* ----------------------------------------------------------
+   MODAL – Janela que aparece ao clicar no card do psicólogo
+---------------------------------------------------------- */
+
+/* Fundo escuro semitransparente que cobre a página */
+.modal-overlay {
+  display: none;
+  /* Escondido por padrão */
+  position: fixed;
+  inset: 0;
+  /* Cobre tudo (top, right, bottom, left: 0) */
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow-y: auto;
+  backdrop-filter: blur(3px);
+}
+
+/* Quando o JS adiciona a classe .ativo, o overlay fica visível */
+.modal-overlay.ativo {
+  display: flex;
+}
+
+/* Caixa branca do modal */
+.modal {
+  background: var(--branco);
+  border-radius: var(--raio);
+  max-width: 680px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.35s ease;
+  /* Animação de entrada */
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+
+/* Animação: o modal sobe do fundo ao abrir */
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Botão X para fechar o modal */
+.modal-fechar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--azul-claro);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--azul-escuro);
+  font-size: 0.9rem;
+  z-index: 10;
+  transition: background var(--transicao);
+}
+
+.modal-fechar:hover {
+  background: var(--azul-card);
+}
+
+/* ----------------------------------------------------------
+   CONTEÚDO INTERNO DO MODAL DE PERFIL
+   (Gerado dinamicamente pelo JavaScript)
+---------------------------------------------------------- */
+.modal-perfil-topo {
+  background: linear-gradient(135deg, var(--azul-escuro), var(--azul-medio));
+  padding: 2.5rem 2rem 3rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  border-radius: var(--raio) var(--raio) 0 0;
+  position: relative;
+}
+
+/* Círculo grande da foto no modal de perfil */
+.modal-foto {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--branco);
+  border: 4px solid rgba(255,255,255,0.8);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.modal-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.modal-foto-iniciais {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--azul-escuro);
+}
+
+.modal-nome {
+  font-size: 1.5rem;
+  color: var(--branco);
+  margin-bottom: 0.3rem;
+}
+.modal-area {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 0.5rem;
+}
+
+.modal-avaliacao {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: #FFD700;
+  font-size: 0.85rem;
+}
+
+/* Corpo do modal com abas de informações */
+.modal-corpo {
+  padding: 2rem;
+}
+
+/* Abas de navegação dentro do modal */
+.modal-abas {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--azul-claro);
+  padding-bottom: 0.5rem;
+}
+
+.modal-aba-btn {
+  background: none;
+  border: none;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--cinza-claro);
+  border-radius: 20px;
+  transition: all var(--transicao);
+}
+
+.modal-aba-btn.ativa {
+  background: var(--azul-claro);
+  color: var(--azul-escuro);
+}
+
+/* Conteúdo da aba (escondido por padrão) */
+.modal-aba-conteudo {
+  display: none;
+}
+.modal-aba-conteudo.ativa {
+  display: block;
+}
+
+/* Linha de informação com ícone + texto */
+.info-linha {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  margin-bottom: 0.9rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.info-linha i {
+  color: var(--azul-medio);
+  width: 16px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* Secção de botões de ação no modal */
+.modal-acoes {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.modal-acoes .btn-primario,
+.modal-acoes .btn-secundario {
+  flex: 1;
+  text-align: center;
+  min-width: 140px;
+}
+
+/* ----------------------------------------------------------
+   MODAL DE MARCAR CONSULTA
+   (Aparece dentro de outro modal ou substitui o de perfil)
+---------------------------------------------------------- */
+.modal-consulta {
+  max-width: 560px;
+}
+
+.consulta-titulo {
+  font-size: 1.4rem;
+  color: var(--azul-escuro);
+  margin-bottom: 0.3rem;
+}
+
+.consulta-sub {
+  color: var(--cinza-claro);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Rótulos dos grupos de opção */
+.opcao-grupo {
+  margin-bottom: 1.5rem;
+}
+
+.opcao-label {
+  font-weight: 700;
+  color: var(--azul-escuro);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.7rem;
+}
+
+/* Botões de opção (tipo consulta, duração, período) */
+.opcoes-botoes {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.opcao-btn {
+  padding: 0.5rem 1rem;
+  border: 2px s

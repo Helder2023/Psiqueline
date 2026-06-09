@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PsiqueLine – Login Futurista</title>
+
+  <style>
+    /* ==========================================================
+       PSIQUELINE – LOGIN FUTURISTA E COMPACTO
+       Base CSS mantida + otimizações para formulário enxuto
+    ========================================================== */
+    :root {
+      --azul-escuro: #1A4F8A;
+      --azul-medio: #2D7DD2;
+      --azul-claro: #E8F2FB;
+      --branco: #FFFFFF;
+      --cinza-texto: #444;
+      --raio: 16px;
+      --raio-btn: 50px;
+      --transicao: 0.3s ease;
+      --glass-bg: rgba(15, 25, 45, 0.75);
+      --glass-border: rgba(45, 125, 210, 0.35);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0a1a2f 0%, #0d2b45 50%, #1a4f8a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Grid futurista de fundo */
+    body::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(rgba(45, 125, 210, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45, 125, 210, 0.08) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 65px;
+      background: rgba(10, 26, 47, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(45, 125, 210, 0.3);
+    }
+
+    .navbar-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .logo-psique {
+      color: var(--branco);
+    }
+
+    .logo-line {
+      background: linear-gradient(135deg, #2D7DD2, #7AB8E8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .badge-tech {
+      font-size: 0.7rem;
+      background: rgba(45, 125, 210, 0.2);
+      padding: 0.25rem 0.9rem;
+      border-radius: 40px;
+      color: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(4px);
+    }
+
+    /* CONTAINER PRINCIPAL - COMPACTO */
+    .login-wrapper {
+      display: flex;
+      max-width: 950px;
+      width: 100%;
+      background: var(--glass-bg);
+      backdrop-filter: blur(14px);
+      border-radius: 1.5rem;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+
+    /* LADO ESQUERDO - FORMULÁRIO COMPACTO */
+    .login-form-area {
+      flex: 1.2;
+      padding: 2rem 2rem;
+      background: rgba(10, 20, 35, 0.5);
+    }
+
+    /* ABAS */
+    .tab-bar {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.8rem;
+      border-bottom: 1px solid rgba(69, 125, 190, 0.3);
+      padding-bottom: 0.5rem;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 0.4rem 1.2rem;
+      cursor: pointer;
+      color: rgba(255, 255, 255, 0.6);
+      border-radius: 40px;
+      transition: all 0.2s;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(90deg, #1A4F8A, #2D7DD2);
+      color: white;
+      box-shadow: 0 2px 10px rgba(45, 125, 210, 0.4);
+    }
+
+    .tab-btn:hover:not(.active) {
+      background: rgba(45, 125, 210, 0.2);
+      color: white;
+    }
+
+    /* FORMULÁRIOS */
+    .form-panel h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: white;
+      margin-bottom: 0.2rem;
+    }
+
+    .form-sub {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.8rem;
+      margin-bottom: 1.5rem;
+      border-left: 3px solid #2D7DD2;
+      padding-left: 0.7rem;
+    }
+
+    .input-group {
+      margin-bottom: 1rem;
+    }
+
+    .input-group label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.3px;
+    }
+
+    .input-group i {
+      color: #2D7DD2;
+      width: 16px;
+      font-size: 0.8rem;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      background: rgba(15, 30, 50, 0.7);
+      border: 1px solid rgba(45, 125, 210, 0.4);
+      border-radius: 0.9rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      color: white;
+      transition: all 0.2s;
+      outline: none;
+    }
+
+    .input-group input:focus {
+      border-color: #2D7DD2;
+      box-shadow: 0 0 0 2px rgba(45, 125, 210, 0.3);
+      background: rgba(10, 25, 45, 0.9);
+    }
+
+    .input-group input::placeholder {
+      color: rgba(255, 255, 255, 0.35);
+      font-size: 0.8rem;
+    }
+
+    .forgot-link {
+      text-align: right;
+      margin-bottom: 1.2rem;
+    }
+
+    .forgot-link a {
+      color: #7AB8E8;
+      font-size: 0.7rem;
+      text-decoration: none;
+    }
+
+    .forgot-link a:hover {
+      text-decoration: underline;
+    }
+
+    .btn-login-action {
+      width: 100%;
+      background: linear-gradient(120deg, #2D7DD2, #1A4F8A);
+      border: none;
+      padding: 0.75rem;
+      border-radius: 2rem;
+      font-weight: 700;
+      color: white;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-login-action:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(45, 125, 210, 0.5);
+    }
+
+    .divider {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.7rem;
+      margin: 0.8rem 0;
+      position: relative;
+    }
+
+    .btn-social {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(45, 125, 210, 0.4);
+      padding: 0.65rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .btn-social:hover {
+      background: rgba(45, 125, 210, 0.2);
+      border-color: #2D7DD2;
+    }
+
+    .hidden-panel {
+      display: none;
+    }
+
+    /* LADO DIREITO - DECORATIVO COMPACTO */
+    .login-deco {
+      flex: 0.9;
+      background: linear-gradient(125deg, rgba(26, 79, 138, 0.9), rgba(13, 43, 69, 0.95));
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border-left: 1px solid rgba(45, 125, 210, 0.4);
+    }
+
+    .deco-content i {
+      font-size: 3rem;
+      color: rgba(255, 255, 255, 0.9);
+      filter: drop-shadow(0 0 10px rgba(45, 125, 210, 0.7));
+      margin-bottom: 0.8rem;
+      display: inline-block;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .deco-content h3 {
+      font-family: 'Playfair Display', serif;
+      color: white;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .deco-content p {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.4;
+    }
+
+    .security-badge {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 0.6rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* TOAST NOTIFICAÇÃO */
+    .toast-msg {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(10, 20, 35, 0.95);
+      backdrop-filter: blur(12px);
+      border-radius: 50px;
+      padding: 0.6rem 1.3rem;
+      color: white;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      z-index: 2000;
+      border-left: 3px solid #2D7DD2;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 700px) {
+      .login-wrapper {
+        flex-direction: column;
+        max-width: 420px;
+      }
+
+      .login-deco {
+        border-left: none;
+        border-top: 1px solid rgba(45, 125, 210, 0.3);
+        padding: 1.2rem;
+      }
+
+      .login-form-area {
+        padding: 1.5rem;
+      }
+
+      .toast-msg {
+        white-space: normal;
+        max-width: 90%;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tab-btn {
+        padding: 0.3rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      .form-panel h2 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar-logo" style="text-decoration: none;">
+      <span class="logo-psique">Psique</span><span class="logo-line">Line</span>
+    </a>
+    <div class="badge-tech"><i class="fas fa-shield-alt"></i> ambiente clínico</div>
+  </nav>
+
+  <div class="login-wrapper">
+    <!-- ÁREA DO FORMULÁRIO COMPACTO -->
+    <div class="login-form-area">
+      <div class="tab-bar">
+        <button class="tab-btn active" id="tabLoginBtn" onclick="switchTab('login')"><i class="fas fa-sign-in-alt"></i>
+          Login</button>
+        <button class="tab-btn" id="tabCadastroBtn" onclick="switchTab('cadastro')"><i class="fas fa-user-plus"></i>
+          Cadastro</button>
+      </div>
+
+      <!-- PAINEL LOGIN -->
+      <div id="loginPanel" class="form-panel">
+        <h2>Acessar conta</h2>
+        <div class="form-sub"><i class="fas fa-brain"></i> Bem-vindo de volta</div>
+
+        <div class="input-group">
+          <label><i class="fas fa-envelope"></i> E-mail</label>
+          <input type="email" id="loginEmail" placeholder="seu@email.com">
+        </div>
+        <div class="input-group">
+          <label><i class="fas fa-lock"></i> Palavra-passe</label>
+          <input type="password" id="loginPassword" placeholder="••••••••">
+        </div>
+        <div class="forgot-link"><a href="#"><i class="fas fa-key"></i> Esqueceu a senha?</a></div>
+
+        <button class="btn-login-action" onclick="handleLogin()"><i class="fas fa-arrow-right-to-bracket"></i>
+          Entrar</button>
+        
+      </div>
+
+      <!-- PAINEL CADASTRO COMPACTO (escondido) -->
+      <div id="cadastroPanel" class="form-panel hidden-panel">
+        <h2>Criar conta</h2>
+        <div class="form-sub"><i class="fas fa-sparkles"></i> Junte-se em segundos</div>
+
+        <div class="input-group">
+          <label><i class="fas fa-user"></i> Nome</label>
+          <input type="text" id="cadNome" placeholder="Nome completo">
+        </div>
+        <div class="input-group">
+          <label><i class="fas fa-envelope"></i> E-mail</label>
+          <input type="email" id="cadEmail" placeholder="exemplo@email.com">
+        </div>
+        <div class="input-group">
+          <label><i class="fas fa-phone"></i> Telefone</label>
+          <input type="tel" id="cadTelefone" placeholder="+244 9XX XXX XXX">
+        </div>
+        <div class="input-group">
+          <label><i class="fas fa-lock"></i> Senha</label>
+          <input type="password" id="cadSenha" placeholder="Mínimo 8 caracteres">
+        </div>
+
+        <button class="btn-login-action" onclick="handleCadastro()"><i class="fas fa-user-check"></i> Criar
+          conta</button>
+      </div>
+    </div>
+
+    <!-- LADO DECORATIVO RESUMIDO -->
+    <div class="login-deco">
+      <div class="deco-content">
+        <i class="fas fa-brain"></i>
+        <h3>Terapia digital</h3>
+        <p>Conecte-se a psicólogos especializados em Luanda. Plataforma inovadora e humanizada.</p>
+        <div class="security-badge">
+          <span><i class="fas fa-lock"></i> Criptografia</span>
+          <span><i class="fas fa-clock"></i> 24/7</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Alternância entre login e cadastro (compacto e rápido)
+    function switchTab(tab) {
+      const loginPanel = document.getElementById('loginPanel');
+      const cadastroPanel = document.getElementById('cadastroPanel');
+      const tabLogin = document.getElementById('tabLoginBtn');
+      const tabCadastro = document.getElementById('tabCadastroBtn');
+
+      if (tab === 'login') {
+        loginPanel.classList.remove('hidden-panel');
+        cadastroPanel.classList.add('hidden-panel');
+        tabLogin.classList.add('active');
+        tabCadastro.classList.remove('active');
+      } else {
+        loginPanel.classList.add('hidden-panel');
+        cadastroPanel.classList.remove('hidden-panel');
+        tabLogin.classList.remove('active');
+        tabCadastro.classList.add('active');
+      }
+    }
+
+    // Função de notificação compacta
+    function showToast(message, isError = false) {
+      const existing = document.querySelector('.toast-msg');
+      if (existing) existing.remove();
+
+      const toast = document.createElement('div');
+      toast.className = 'toast-msg';
+      toast.innerHTML = `<i class="fas ${isError ? 'fa-circle-exclamation' : 'fa-circle-check'}" style="color: ${isError ? '#f39c12' : '#2ecc71'}"></i> <span>${message}</span>`;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 2800);
+    }
+
+    // LOGIN com validação e redirecionamento
+    function handleLogin() {
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value.trim();
+
+      if (!email || !password) {
+        showToast('Preencha e-mail e palavra-passe', true);
+        return;
+      }
+      if (!email.includes('@') || !email.includes('.')) {
+        showToast('E-mail inválido', true);
+        return;
+      }
+      // Simulação sucesso
+      showToast('Acesso autorizado! Redirecionando...', false);
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 1000);
+    }
+
+    // CADASTRO rápido e eficiente
+    function handleCadastro() {
+      const nome = document.getElementById('cadNome').value.trim();
+      const email = document.getElementById('cadEmail').value.trim();
+      const telefone = document.getElementById('cadTelefone').value.trim();
+      const senha = document.getElementById('cadSenha').value;
+
+      if (!nome || !email || !telefone || !senha) {
+        showToast('Preencha todos os campos', true);
+        return;
+      }
+      if (nome.length < 3) {
+        showToast('Nome muito curto', true);
+        return;
+      }
+      if (!email.includes('@')) {
+        showToast('E-mail inválido', true);
+        return;
+      }
+      if (senha.length < 8) {
+        showToast('A senha precisa de no mínimo 8 caracteres', true);
+        return;
+      }
+      if (telefone.replace(/\D/g, '').length < 9) {
+        showToast('Número de telefone inválido', true);
+        return;
+      }
+
+      showToast('Conta criada com sucesso! Redirecionando...', false);
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 1200);
+    }
+
+    // Simulação login social
+    function socialMock() {
+      showToast('Conexão via Google • ambiente seguro', false);
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 900);
+    }
+
+    // Evento de tecla Enter no login
+    const loginEmail = document.getElementById('loginEmail');
+    const loginPass = document.getElementById('loginPassword');
+    if (loginEmail && loginPass) {
+      const handleEnter = (e) => { if (e.key === 'Enter') handleLogin(); };
+      loginEmail.addEventListener('keypress', handleEnter);
+      loginPass.addEventListener('keypress', handleEnter);
+    }
+
+    // Enter no cadastro (nos 3 primeiros campos e senha)
+    const cadFields = ['cadNome', 'cadEmail', 'cadTelefone', 'cadSenha'];
+    cadFields.forEach(id => {
+      const field = document.getElementById(id);
+      if (field) field.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleCadastro(); });
+    });
+  </script>
+</body>
+
+</html>

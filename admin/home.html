@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PsiqueLine – Admin Dashboard | Painel de Controlo</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lato:wght@300;400;700;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Chart.js para gráficos -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <span class="logo-psique">Psique</span><span class="logo-line">Line</span>
+      </div>
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar">AR</div>
+        <div class="sidebar-user-info">
+          <h4>Ana Rodrigues</h4>
+          <p>Administradora</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-nav">
+      <a href="home.html" class="nav-item active"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
+      <a href="admins.html" class="nav-item"><i class="fas fa-user-shield"></i><span>Administradores</span></a>
+      <a href="gestao-psicologo.html" class="nav-item"><i class="fas fa-user-md"></i><span>Psicólogos</span></a>
+      <a href="gestao-pacientes.html" class="nav-item"><i class="fas fa-users"></i><span>Pacientes</span></a>
+      <a href="consultas.html" class="nav-item"><i class="fas fa-calendar-check"></i><span>Consultas</span></a>
+      <a href="comissoes.html" class="nav-item"><i class="fas fa-percent"></i><span>Comissões</span></a>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <div class="top-bar">
+      <div class="page-title">
+        <h1>Dashboard</h1>
+        <p>Visão geral da plataforma PsiqueLine</p>
+      </div>
+      <div class="top-bar-actions">
+        <!-- Theme Toggle -->
+        <div class="theme-toggle" id="themeToggle">
+          <i class="fas fa-moon"></i>
+        </div>
+
+        <!-- Notificações Dropdown -->
+        <div class="dropdown" id="notifDropdown">
+          <div class="notification-btn" id="notifBtn">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">3</span>
+          </div>
+          <div class="dropdown-menu" id="notifMenu">
+            <div class="dropdown-header">
+              <i class="fas fa-bell"></i> Notificações
+            </div>
+            <div class="dropdown-item">
+              <i class="fas fa-user-plus"></i>
+              <div class="dropdown-item-content">
+                <div class="dropdown-item-title">Novo psicólogo cadastrado</div>
+                <div class="dropdown-item-time">Há 5 minutos</div>
+              </div>
+            </div>
+            <div class="dropdown-item">
+              <i class="fas fa-calendar-check"></i>
+              <div class="dropdown-item-content">
+                <div class="dropdown-item-title">Nova consulta agendada</div>
+                <div class="dropdown-item-time">Há 1 hora</div>
+              </div>
+            </div>
+            <div class="dropdown-item">
+              <i class="fas fa-chart-line"></i>
+              <div class="dropdown-item-content">
+                <div class="dropdown-item-title">Relatório mensal disponível</div>
+                <div class="dropdown-item-time">Há 3 horas</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Perfil Admin Dropdown -->
+        <div class="dropdown" id="profileDropdown">
+          <div class="admin-profile" id="profileBtn">
+            <i class="fas fa-user-circle"></i>
+            <span>Ana Rodrigues</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="dropdown-menu profile-dropdown" id="profileMenu">
+           
+          <a class="nav-item" href="configuracao.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Configurações</span>
+                        </a>
+                        <a class="nav-item" href="logout.html">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Sair</span>
+                        </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARDS ESTATÍSTICAS -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-header">
+          <span>Psicólogos Ativos</span>
+          <div class="stat-icon"><i class="fas fa-user-md"></i></div>
+        </div>
+        <div class="stat-value">24</div>
+        <div class="stat-change positive"><i class="fas fa-arrow-up"></i> +3 este mês</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-header">
+          <span>Pacientes Registados</span>
+          <div class="stat-icon"><i class="fas fa-users"></i></div>
+        </div>
+        <div class="stat-value">1,284</div>
+        <div class="stat-change positive"><i class="fas fa-arrow-up"></i> +128 este mês</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-header">
+          <span>Consultas Realizadas</span>
+          <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+        </div>
+        <div class="stat-value">3,456</div>
+        <div class="stat-change positive"><i class="fas fa-arrow-up"></i> +23% vs anterior</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-header">
+          <span>Receita Total</span>
+          <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+        </div>
+        <div class="stat-value">18.2M Kz</div>
+        <div class="stat-change positive"><i class="fas fa-arrow-up"></i> +12% vs anterior</div>
+      </div>
+    </div>
+
+    <!-- GRÁFICOS -->
+    <div class="charts-row">
+      <div class="chart-card">
+        <div class="chart-title"><i class="fas fa-chart-line"></i><span>Consultas por Mês (2024)</span></div>
+        <canvas id="consultasChart"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title"><i class="fas fa-chart-pie"></i><span>Distribuição por Especialidade</span></div>
+        <canvas id="especialidadesChart"></canvas>
+      </div>
+    </div>
+
+    <!-- TABELA PSICÓLOGOS -->
+    <div class="table-card">
+      <div class="table-header">
+        <div class="table-title"><i class="fas fa-user-md"></i><span>Últimos Psicólogos Cadastrados</span></div>
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchPsicologoInput" placeholder="Buscar psicólogo...">
+        </div>
+      </div>
+      <div style="overflow-x: auto;">
+        <table id="tabelaPsicologos">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Especialidade</th>
+              <th>Localização</th>
+              <th>Experiência</th>
+              <th>Avaliação</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="psicologosTableBody">
+            <tr>
+              <td><strong>Dr. António Sebastião</strong></td>
+              <td>Distúrbios Mentais</td>
+              <td>Talatona</td>
+              <td>12 anos</td>
+              <td><i class="fas fa-star" style="color: #f59e0b;"></i> 4.9</td>
+              <td><span class="status-badge status-active">Ativo</span></td>
+
+            </tr>
+            <tr>
+              <td><strong>Dra. Marlene Teixeira</strong></td>
+              <td>Autoestima & Liderança</td>
+              <td>Mutamba</td>
+              <td>8 anos</td>
+              <td><i class="fas fa-star" style="color: #f59e0b;"></i> 4.8</td>
+              <td><span class="status-badge status-active">Ativo</span></td>
+
+            </tr>
+            <tr>
+              <td><strong>Dr. Carlos Domingos</strong></td>
+              <td>Burnout & Stress</td>
+              <td>Vila-Alice</td>
+              <td>15 anos</td>
+              <td><i class="fas fa-star" style="color: #f59e0b;"></i> 4.7</td>
+              <td><span class="status-badge status-active">Ativo</span></td>
+
+            </tr>
+            <tr>
+              <td><strong>Dra. Joana Ferreira</strong></td>
+              <td>Psicologia Infantil</td>
+              <td>Rangel</td>
+              <td>10 anos</td>
+              <td><i class="fas fa-star" style="color: #f59e0b;"></i> 5.0</td>
+              <td><span class="status-badge status-pending">Pendente</span></td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top: 1rem; padding: 0.5rem; text-align: right; font-size: 0.8rem; color: var(--text-muted);">
+        <span id="psicologosCount">4</span> de <span id="psicologosTotal">4</span> resultados
+      </div>
+    </div>
+
+    <script>
+      // ========================================================
+      // FILTRO PARA TABELA DE PSICÓLOGOS
+      // ========================================================
+      (function () {
+        // Aguardar o DOM carregar
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initPsicologosFilter);
+        } else {
+          initPsicologosFilter();
+        }
+
+        function initPsicologosFilter() {
+          const searchInput = document.getElementById('searchPsicologoInput');
+          const tableBody = document.getElementById('psicologosTableBody');
+          const countSpan = document.getElementById('psicologosCount');
+          const totalSpan = document.getElementById('psicologosTotal');
+
+          if (!searchInput || !tableBody) return;
+
+          // Guardar todas as linhas originais
+          const allRows = Array.from(tableBody.querySelectorAll('tr'));
+
+          // Atualizar total
+          if (totalSpan) {
+            totalSpan.textContent = allRows.length;
+          }
+
+          // Função de filtro
+          function filterPsicologos() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+
+            let visibleCount = 0;
+
+            allRows.forEach(row => {
+              // Pegar o texto das colunas importantes
+              const nome = row.cells[0]?.innerText.toLowerCase() || '';
+              const especialidade = row.cells[1]?.innerText.toLowerCase() || '';
+              const localizacao = row.cells[2]?.innerText.toLowerCase() || '';
+
+              // Verificar se algum campo contém o termo de busca
+              const matches = searchTerm === '' ||
+                nome.includes(searchTerm) ||
+                especialidade.includes(searchTerm) ||
+                localizacao.includes(searchTerm);
+
+              // Mostrar ou esconder a linha
+              if (matches) {
+                row.style.display = '';
+                visibleCount++;
+              } else {
+                row.style.display = 'none';
+              }
+            });
+
+            // Atualizar contador
+            if (countSpan) {
+              countSpan.textContent = visibleCount;
+            }
+          }
+
+          // Adicionar evento de busca
+          searchInput.addEventListener('keyup', filterPsicologos);
+          searchInput.addEventListener('search', filterPsicologos);
+
+          // Filtrar também ao limpar o campo com o X
+          searchInput.addEventListener('input', filterPsicologos);
+
+          console.log('✅ Filtro da tabela de psicólogos ativado!');
+        }
+      })();
+    </script>
+  </main>
+
+  <script>
+    // ========================================================
+    // DARK / LIGHT MODE
+    // ========================================================
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('i');
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('psiqueline-theme', theme);
+
+      if (theme === 'dark') {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+      }
+    }
+
+    // Verificar tema salvo
+    const savedTheme = localStorage.getItem('psiqueline-theme') || 'light';
+    setTheme(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      setTheme(newTheme);
+    });
+
+    // ========================================================
+    // DROPDOWNS
+    // ========================================================
+    // Fechar dropdowns ao clicar fora
+    function closeAllDropdowns() {
+      document.querySelectorAll('.dropdown-menu').forEach(menu => {
+        menu.classList.remove('show');
+      });
+    }
+
+    // Notificações Dropdown
+    const notifBtn = document.getElementById('notifBtn');
+    const notifMenu = document.getElementById('notifMenu');
+
+    notifBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeAllDropdowns();
+      notifMenu.classList.toggle('show');
+    });
+
+    // Perfil Dropdown
+    const profileBtn = document.getElementById('profileBtn');
+    const profileMenu = document.getElementById('profileMenu');
+
+    profileBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeAllDropdowns();
+      profileMenu.classList.toggle('show');
+    });
+
+    // Fechar ao clicar fora
+    document.addEventListener('click', (e) => {
+      if (!notifBtn.contains(e.target) && !notifMenu.contains(e.target)) {
+        notifMenu.classList.remove('show');
+      }
+      if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) {
+        profileMenu.classList.remove('show');
+      }
+    });
+
+    // ========================================================
+    // GRÁFICOS
+    // ========================================================
+    // ========================================================
+    // GRÁFICOS ESTILIZADOS - VERSÃO PROFISSIONAL
+    // ========================================================
+
+    (function () {
+      // Aguardar o DOM carregar
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCharts);
+      } else {
+        initCharts();
+      }
+
+      function initCharts() {
+
+        // ========================================================
+        // GRÁFICO 1: CONSULTAS POR MÊS (LINE CHART)
+        // ========================================================
+        const ctx1 = document.getElementById('consultasChart');
+        if (ctx1) {
+          new Chart(ctx1, {
+            type: 'line',
+            data: {
+              labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+              datasets: [{
+                label: 'Consultas Realizadas',
+                data: [180, 220, 250, 290, 340, 380, 420, 460, 510, 550, 590, 620],
+                borderColor: '#2D7DD2',
+                backgroundColor: function (context) {
+                  const chart = context.chart;
+                  const { ctx, chartArea } = chart;
+                  if (!chartArea) return null;
+                  const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+                  gradient.addColorStop(0, 'rgba(45, 125, 210, 0.4)');
+                  gradient.addColorStop(1, 'rgba(45, 125, 210, 0.02)');
+                  return gradient;
+                },
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4,
+                pointBackgroundColor: '#2D7DD2',
+                pointBorderColor: '#ffffff',
+                pointBorderWidth: 2,
+                pointRadius: 5,
+                pointHoverRadius: 8,
+                pointHoverBackgroundColor: '#4a9eff',
+                pointHoverBorderColor: '#ffffff',
+                pointHoverBorderWidth: 3
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: true,
+              plugins: {
+                tooltip: {
+                  backgroundColor: 'rgba(0,0,0,0.8)',
+                  titleColor: '#ffffff',
+                  bodyColor: '#a0a0b0',
+                  borderColor: '#2D7DD2',
+                  borderWidth: 1,
+                  cornerRadius: 8,
+                  displayColors: false,
+                  callbacks: {
+                    label: function (context) {
+                      return `📊 ${context.raw} consultas`;
+                    }
+                  }
+                },
+                legend: {
+                  position: 'top',
+                  labels: {
+                    color: getComputedStyle(document.documentElement).getPropertyValue('--text-secondary').trim() || '#666',
+                    font: { size: 11, family: 'Lato, sans-serif' },
+                    usePointStyle: true,
+                    pointStyle: 'circle',
+                    padding: 15
+                  }
+                }
+              },
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  grid: {
+                    color: 'rgba(128, 128, 128, 0.1)',
+                    drawBorder: false,
+                    lineWidth: 1,
+                    tickLength: 0
+                  },
+                  ticks: {
+                    color: getComputedStyle(document.documentElement).getPropertyValue('--text-muted').trim() || '#888',
+                    stepSize: 100,
+                    callback: function (value) {
+                      return value + ' 📋';
+                    }
+                  },
+                  title: {
+                    display: true,
+                    text: 'Número de Consultas',
+                    color: getComputedStyle(document.documentElement).getPropertyValue('--text-muted').trim() || '#888',
+                    font: { size: 10, weight: 'normal' }
+                  }
+                },
+                x: {
+                  grid: { display: false },
+                  ticks: {
+                    color: getComputedStyle(document.documentElement).getPropertyValue('--text-muted').trim() || '#888',
+                    font: { size: 10, weight: '500' }
+                  }
+                }
+              },
+              elements: {
+                line: {
+                  borderJoin: 'round',
+                  borderCap: 'round'
+                }
+              },
+              animation: {
+                duration: 2000,
+                easing: 'easeInOutQuart'
+              },
+              hover: {
+                mode: 'nearest',
+                intersect: true
+              }
+            }
+          });
+        }
+
+        // ========================================================
+        // GRÁFICO 2: DISTRIBUIÇÃO POR ESPECIALIDADE (DOUGHNUT CHART)
+        // ========================================================
+        const ctx2 = document.getElementById('especialidadesChart');
+        if (ctx2) {
+          new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+              labels: ['Ansiedade', 'Depressão', 'Burnout', 'Autoestima', 'Infantil', 'Relacionamentos'],
+              datasets: [{
+                data: [28, 22, 18, 14, 10, 8],
+                backgroundColor: [
+                  'rgba(45, 125, 210, 0.9)',
+                  'rgba(74, 158, 255, 0.9)',
+                  'rgba(107, 91, 255, 0.9)',
+                  'rgba(139, 92, 246, 0.9)',
+                  'rgba(16, 185, 129, 0.9)',
+                  'rgba(245, 158, 11, 0.9)'
+                ],
+                borderColor: 'rgba(255, 255, 255, 0.2)',
+                borderWidth: 2,
+                hoverOffset: 15,
+                cutout: '60%',
+                borderRadius: 8,
+                spacing: 3
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: true,
+              plugins: {
+                tooltip: {
+                  backgroundColor: 'rgba(0,0,0,0.8)',
+                  titleColor: '#ffffff',
+                  bodyColor: '#a0a0b0',
+                  borderColor: '#2D7DD2',
+                  borderWidth: 1,
+                  cornerRadius: 8,
+                  callbacks: {
+                    label: function (context) {
+                      const label = context.label || '';
+                      const value = context.raw || 0;
+                      const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                      const percentage = Math.round((value / total) * 100);
+                      return `${label}: ${value}% (${percentage}% do total)`;
+                    }
+                  }
+                },
+                legend: {
+                  position: 'bottom',
+                  labels: {
+                    color: getComputedStyle(document.documentElement).getPropertyValue('--text-secondary').trim() || '#666',
+                    font: { size: 10, family: 'Lato, sans-serif' },
+                    usePointStyle: true,
+                    pointStyle: 'circle',
+                    padding: 12,
+                    boxWidth: 10,
+                    boxHeight: 10
+                  }
+                }
+              },
+              animation: {
+                animateRotate: true,
+                animateScale: true,
+                duration: 2000,
+                easing: 'easeOutBounce'
+              },
+              layout: {
+                padding: {
+                  top: 10,
+                  bottom: 10,
+                  left: 10,
+                  right: 10
+                }
+              }
+            }
+          });
+        }
+
+        // ========================================================
+        // FUNÇÃO PARA ATUALIZAR CORES DOS GRÁFICOS NO DARK MODE
+        // ========================================================
+        function updateChartsColors() {
+          const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-secondary').trim() || (isDark ? '#a0a0b0' : '#666');
+          const mutedColor = getComputedStyle(document.documentElement).getPropertyValue('--text-muted').trim() || (isDark ? '#707070' : '#888');
+
+          // Atualizar todos os gráficos existentes
+          Chart.instances?.forEach(chart => {
+            if (chart.options) {
+              if (chart.options.plugins?.legend?.labels) {
+                chart.options.plugins.legend.labels.color = textColor;
+              }
+              if (chart.options.scales?.y?.ticks) {
+                chart.options.scales.y.ticks.color = mutedColor;
+              }
+              if (chart.options.scales?.x?.ticks) {
+                chart.options.scales.x.ticks.color = mutedColor;
+              }
+              if (chart.options.scales?.y?.title) {
+                chart.options.scales.y.title.color = mutedColor;
+              }
+              chart.update();
+            }
+          });
+        }
+
+        // Observar mudanças no tema
+        const observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (mutation) {
+            if (mutation.attributeName === 'data-theme') {
+              setTimeout(updateChartsColors, 100);
+            }
+          });
+        });
+
+        observer.observe(document.documentElement, { attributes: true });
+      }
+    })();
+  </script>
+
+  <style>
+    /* ==========================================================
+       PSIQUELINE – ADMIN DASHBOARD FUTURISTA
+       Com suporte a Dark/Light Mode
+    ========================================================== */
+
+    /* Light Mode (padrão) */
+    :root {
+      --bg-primary: #f0f2f5;
+      --bg-secondary: #ffffff;
+      --bg-card: #ffffff;
+      --text-primary: #1a1a2e;
+      --text-secondary: #666666;
+      --text-muted: #888888;
+      --border-color: #e0e0e0;
+      --sidebar-bg: #ffffff;
+      --glass-bg: rgba(255, 255, 255, 0.9);
+      --glass-border: rgba(0, 0, 0, 0.08);
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
+      --azul-escuro: #1A4F8A;
+      --azul-medio: #2D7DD2;
+      --azul-claro: #4a9eff;
+      --azul-gelo: #e8f0fe;
+      --verde: #10b981;
+      --vermelho: #ef4444;
+      --laranja: #f59e0b;
+      --roxo: #8b5cf6;
+      --raio: 20px;
+      --raio-card: 16px;
+      --transicao: 0.3s ease;
+    }
+
+    /* Dark Mode */
+    [data-theme="dark"] {
+      --bg-primary: #0a0e1a;
+      --bg-secondary: #141824;
+      --bg-card: #1a1f2e;
+      --text-primary: #ffffff;
+      --text-secondary: #a0a0b0;
+      --text-muted: #707070;
+      --border-color: #2a2f3f;
+      --sidebar-bg: #0f1420;
+      --glass-bg: rgba(26, 31, 46, 0.95);
+      --glass-border: rgba(255, 255, 255, 0.05);
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      transition: background var(--transicao), color var(--transicao);
+    }
+
+    /* ========================================================
+       SIDEBAR
+    ======================================================== */
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 280px;
+      height: 100vh;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--border-color);
+      z-index: 100;
+      transition: all var(--transicao);
+      overflow-y: auto;
+    }
+
+    .sidebar-header {
+      padding: 1.8rem 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    .sidebar-logo .logo-psique {
+      color: var(--azul-escuro);
+    }
+
+    .sidebar-logo .logo-line {
+      color: var(--azul-medio);
+    }
+
+    [data-theme="dark"] .sidebar-logo .logo-psique {
+      color: var(--branco);
+    }
+
+    .sidebar-user {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-top: 1rem;
+      padding: 0.8rem;
+      background: var(--glass-bg);
+      border-radius: var(--raio-card);
+      border: 1px solid var(--glass-border);
+    }
+
+    .sidebar-user-avatar {
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, var(--azul-medio), var(--azul-claro));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: white;
+    }
+
+    .sidebar-user-info h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .sidebar-user-info p {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+    }
+
+    .sidebar-nav {
+      padding: 0 1rem;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.9rem 1rem;
+      margin-bottom: 0.5rem;
+      border-radius: var(--raio-card);
+      color: var(--text-secondary);
+      transition: all var(--transicao);
+      cursor: pointer;
+      text-decoration: none !important;
+    }
+
+    .nav-item i {
+      width: 22px;
+      font-size: 1.1rem;
+    }
+
+    .nav-item:hover {
+      background: var(--glass-bg);
+      color: var(--azul-medio);
+      transform: translateX(5px);
+    }
+
+    .nav-item.active {
+      background: linear-gradient(90deg, rgba(45, 125, 210, 0.15), transparent);
+      color: var(--azul-medio);
+      border-left: 3px solid var(--azul-medio);
+    }
+
+    /* ========================================================
+       MAIN CONTENT
+    ======================================================== */
+    .main-content {
+      margin-left: 280px;
+      padding: 1.5rem 2rem;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .page-title h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .page-title p {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      margin-top: 0.2rem;
+    }
+
+    .top-bar-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    /* Notificações */
+    .notification-btn {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transicao);
+      position: relative;
+      color: var(--text-primary);
+    }
+
+    .notification-btn:hover {
+      background: var(--azul-medio);
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .notification-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: var(--vermelho);
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      font-size: 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    /* Dropdown Notificações */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      width: 320px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--raio-card);
+      box-shadow: var(--shadow);
+      z-index: 1000;
+      display: none;
+      overflow: hidden;
+    }
+
+    .dropdown-menu.show {
+      display: block;
+      animation: fadeIn 0.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .dropdown-header {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 700;
+    }
+
+    .dropdown-item {
+      padding: 0.8rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      cursor: pointer;
+      transition: background var(--transicao);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .dropdown-item:hover {
+      background: var(--glass-bg);
+    }
+
+    .dropdown-item i {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--glass-bg);
+      border-radius: 50%;
+    }
+
+    .dropdown-item-content {
+      flex: 1;
+    }
+
+    .dropdown-item-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .dropdown-item-time {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    /* Perfil Admin */
+    .admin-profile {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: var(--glass-bg);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      border: 1px solid var(--glass-border);
+      transition: all var(--transicao);
+    }
+
+    .admin-profile:hover {
+      background: var(--azul-medio);
+      color: white;
+    }
+
+    .admin-profile span {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* Dropdown Perfil */
+    .profile-dropdown {
+      width: 220px;
+    }
+
+    .profile-dropdown .dropdown-item {
+      border-bottom: none;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 0.5rem 0;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transicao);
+      color: var(--text-primary);
+    }
+
+    .theme-toggle:hover {
+      background: var(--azul-medio);
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* ========================================================
+       CARDS ESTATÍSTICAS
+    ======================================================== */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--raio-card);
+      padding: 1.3rem;
+      transition: all var(--transicao);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--azul-medio);
+    }
+
+    .stat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .stat-header span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .stat-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(45, 125, 210, 0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--azul-medio);
+    }
+
+    .stat-value {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-change {
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .stat-change.positive {
+      color: var(--verde);
+    }
+
+    .stat-change.negative {
+      color: var(--vermelho);
+    }
+
+    /* ========================================================
+       GRÁFICOS E TABELAS
+    ======================================================== */
+    .charts-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .chart-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--raio-card);
+      padding: 1.3rem;
+    }
+
+    .chart-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .chart-title i {
+      color: var(--azul-medio);
+    }
+
+    canvas {
+      max-height: 250px;
+    }
+
+    .table-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--raio-card);
+      padding: 1.3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .table-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .table-title {
+      font-size: 1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--glass-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 40px;
+      padding: 0.4rem 0.8rem;
+    }
+
+    .search-box input {
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      padding: 0.4rem;
+      outline: none;
+      font-size: 0.8rem;
+    }
+
+    .search-box input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .search-box i {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 1rem 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    th {
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      font-size: 0.85rem;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .status-active {
+      background: rgba(16, 185, 129, 0.2);
+      color: var(--verde);
+    }
+
+    .status-pending {
+      background: rgba(245, 158, 11, 0.2);
+      color: var(--laranja);
+    }
+
+    .action-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      margin: 0 0.3rem;
+      transition: color var(--transicao);
+    }
+
+    .action-btn:hover {
+      color: var(--azul-medio);
+    }
+
+    /* Responsividade */
+    @media (max-width: 1024px) {
+      .sidebar {
+        width: 80px;
+      }
+
+      .sidebar-header,
+      .sidebar-user-info,
+      .nav-item span {
+        display: none;
+      }
+
+      .sidebar-user-avatar {
+        margin: 0 auto;
+      }
+
+      .sidebar-user {
+        justify-content: center;
+      }
+
+      .nav-item {
+        justify-content: center;
+      }
+
+      .nav-item i {
+        margin: 0;
+      }
+
+      .main-content {
+        margin-left: 80px;
+      }
+
+      .charts-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .table-card {
+        overflow-x: auto;
+      }
+
+      table {
+        min-width: 600px;
+      }
+    }
+  </style>
+</body>
+
+</html>

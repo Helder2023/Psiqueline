@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PsiqueLine – Psicólogos</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lato:wght@300;400;700;900&display=swap"
+        rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <span class="logo-psique">Psique</span><span class="logo-line">Line</span>
+            </div>
+            <div class="sidebar-user">
+                <div class="sidebar-user-avatar">MF</div>
+                <div class="sidebar-user-info">
+                    <h4>Maria Fernandes</h4>
+                    <p>Paciente</p>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-nav">
+            <a href="home.html" class="nav-item"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
+            <a href="consultas.html" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Minhas
+                    Consultas</span></a>
+            <a href="psicologo.html" class="nav-item active"><i class="fas fa-user-md"></i><span>Psicólogos</span></a>
+            <a href="progresso.html" class="nav-item"><i class="fas fa-chart-line"></i><span>Meu Progresso</span></a>
+            <a href="pagamento.html" class="nav-item"><i class="fas fa-credit-card"></i><span>Pagamentos</span></a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="top-bar">
+            <div class="page-title">
+                <h1>Psicólogos</h1>
+                <p>Encontre o profissional ideal para você</p>
+            </div>
+            <div class="top-bar-actions">
+                <div class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></div>
+
+                <!-- Notificações Dropdown -->
+                <div class="dropdown" id="notifDropdown">
+                    <div class="notification-btn" id="notifBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="dropdown-menu" id="notifMenu">
+                        <div class="dropdown-header">
+                            <i class="fas fa-bell"></i> Notificações
+                            <span class="mark-all-read">Marcar todas como lidas</span>
+                        </div>
+                        <div class="dropdown-item unread">
+                            <i class="fas fa-calendar-check"></i>
+                            <div class="dropdown-item-content">
+                                <div class="dropdown-item-title">Consulta confirmada</div>
+                                <div class="dropdown-item-description">Dr. António Sebastião - 15/01 às 09:00</div>
+                                <div class="dropdown-item-time">Há 5 minutos</div>
+                            </div>
+                            <div class="unread-dot"></div>
+                        </div>
+                        <div class="dropdown-item unread">
+                            <i class="fas fa-file-invoice"></i>
+                            <div class="dropdown-item-content">
+                                <div class="dropdown-item-title">Pagamento confirmado</div>
+                                <div class="dropdown-item-description">Consulta de 10/01 - 8.500 Kz</div>
+                                <div class="dropdown-item-time">Há 2 horas</div>
+                            </div>
+                            <div class="unread-dot"></div>
+                        </div>
+                        <div class="dropdown-item">
+                            <i class="fas fa-star"></i>
+                            <div class="dropdown-item-content">
+                                <div class="dropdown-item-title">Avalie sua consulta</div>
+                                <div class="dropdown-item-description">Como foi sua experiência com Dr. Carlos?</div>
+                                <div class="dropdown-item-time">Há 1 dia</div>
+                            </div>
+                        </div>
+                        <div class="dropdown-footer">
+                            <a href="#">Ver todas as notificações</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perfil Dropdown -->
+                <div class="dropdown" id="profileDropdown">
+                    <div class="user-profile" id="profileBtn">
+                        <div class="profile-avatar">
+                            <img src="https://ui-avatars.com/api/?background=2D7DD2&color=fff&name=Maria+Fernandes"
+                                alt="Avatar">
+                            <span class="online-status"></span>
+                        </div>
+                        <div class="profile-info">
+                            <span class="profile-name">Maria Fernandes</span>
+                            <span class="profile-role">Paciente</span>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown-menu profile-dropdown" id="profileMenu">
+                        <div class="profile-header-dropdown">
+                            <div class="profile-info-dropdown">
+                                <h4>Maria Fernandes</h4>
+                                <p>maria.fernandes@email.com</p>
+                            </div>
+                        </div>
+                        <a class="nav-item" href="configuracao.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Configurações</span>
+                        </a>
+                        <a class="nav-item" href="logout.html">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Sair</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FILTROS -->
+        <div class="filters-bar">
+            <div class="filter-group">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar por nome ou especialidade...">
+            </div>
+            <div class="filter-group">
+                <i class="fas fa-filter"></i>
+                <select id="especialidadeFilter">
+                    <option value="">Todas as especialidades</option>
+                    <option value="Ansiedade e Depressão">Ansiedade e Depressão</option>
+                    <option value="Autoestima e Liderança">Autoestima e Liderança</option>
+                    <option value="Burnout e Stress">Burnout e Stress</option>
+                    <option value="Psicologia Infantil">Psicologia Infantil</option>
+                    <option value="Relacionamentos">Relacionamentos</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <i class="fas fa-map-marker-alt"></i>
+                <select id="localizacaoFilter">
+                    <option value="">Todas as localizações</option>
+                    <option value="Talatona">Talatona</option>
+                    <option value="Mutamba">Mutamba</option>
+                    <option value="Vila-Alice">Vila-Alice</option>
+                    <option value="Rangel">Rangel</option>
+                    <option value="Online">Online</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <i class="fas fa-star"></i>
+                <select id="avaliacaoFilter">
+                    <option value="">Todas as avaliações</option>
+                    <option value="4.5">4.5+ estrelas</option>
+                    <option value="4.0">4.0+ estrelas</option>
+                    <option value="3.5">3.5+ estrelas</option>
+                </select>
+            </div>
+            <button class="btn-secondary" onclick="limparFiltros()">
+                <i class="fas fa-eraser"></i> Limpar
+            </button>
+        </div>
+
+        <!-- LISTA DE PSICÓLOGOS -->
+        <div class="psicologos-container" id="psicologosContainer"></div>
+
+        <!-- MODAL DE DETALHES DO PSICÓLOGO -->
+        <div class="modal-overlay" id="modalDetalhes">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3><i class="fas fa-user-md"></i> Perfil do Psicólogo</h3>
+                    <button class="close-modal" onclick="fecharModal('modalDetalhes')"><i
+                            class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body" id="detalhesBody"></div>
+                <div class="modal-footer">
+                    <button class="btn-secondary" onclick="fecharModal('modalDetalhes')">Fechar</button>
+                    <button class="btn-primary" id="btnAgendarModal" onclick="agendarDoModal()"><i
+                            class="fas fa-calendar-plus"></i> Agendar Consulta</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL AGENDAR CONSULTA -->
+        <div class="modal-overlay" id="modalAgendar">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3><i class="fas fa-calendar-plus"></i> Agendar Consulta</h3>
+                    <button class="close-modal" onclick="fecharModal('modalAgendar')"><i
+                            class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div id="psicologoSelecionado" class="info-box"></div>
+                    <form id="formAgendamento">
+                        <div class="form-group">
+                            <label><i class="fas fa-calendar"></i> Data da Consulta *</label>
+                            <input type="date" id="dataConsulta" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><i class="fas fa-clock"></i> Horário *</label>
+                                <select id="horarioConsulta" required>
+                                    <option value="">Selecione horário</option>
+                                    <option value="08:00">08:00 - 09:00</option>
+                                    <option value="09:00">09:00 - 10:00</option>
+                                    <option value="10:00">10:00 - 11:00</option>
+                                    <option value="11:00">11:00 - 12:00</option>
+                                    <option value="14:00">14:00 - 15:00</option>
+                                    <option value="15:00">15:00 - 16:00</option>
+                                    <option value="16:00">16:00 - 17:00</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-video"></i> Tipo de Consulta *</label>
+                                <select id="tipoConsulta" required>
+                                    <option value="presencial">Presencial</option>
+                                    <option value="video">Videochamada</option>
+                                    <option value="domicilio">Domicílio (+20%)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-money-bill"></i> Valor Estimado</label>
+                            <input type="text" id="valorEstimado" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-comment"></i> Observações</label>
+                            <textarea id="obsAgendamento" rows="2"
+                                placeholder="Informe algo relevante sobre sua necessidade..."></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-secondary" onclick="fecharModal('modalAgendar')">Cancelar</button>
+                    <button class="btn-primary" onclick="confirmarAgendamento()"><i class="fas fa-check"></i> Confirmar
+                        Agendamento</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Dados dos Psicólogos
+        const psicologos = [
+            {
+                id: 1, nome: "Dr. António Sebastião", especialidade: "Ansiedade e Depressão", experiencia: "12 anos", avaliacao: 4.9, totalAvaliacoes: 128, preco: 8500, localizacao: "Talatona", formacao: "Licenciatura em Psicologia - UAN, Pós em TCC", bio: "Especialista em ansiedade e depressão com mais de 12 anos de experiência. Abordagem humanista e centrada no cliente.", disponibilidade: "Segunda a Sexta, 08h-18h", online: true
+            },
+            {
+                id: 2, nome: "Dra. Marlene Teixeira", especialidade: "Autoestima e Liderança", experiencia: "8 anos", avaliacao: 4.8, totalAvaliacoes: 94, preco: 7500, localizacao: "Mutamba", formacao: "Mestrado em Psicologia Organizacional", bio: "Especialista em empoderamento feminino e liderança. Ajuda mulheres a descobrirem seu potencial.", disponibilidade: "Segunda a Sábado, 09h-19h", online: true
+            },
+            {
+                id: 3, nome: "Dr. Carlos Domingos", especialidade: "Burnout e Stress", experiencia: "15 anos", avaliacao: 4.7, totalAvaliacoes: 156, preco: 9000, localizacao: "Vila-Alice", formacao: "Especialização em Psicologia do Trabalho", bio: "Referência em psicologia do trabalho e burnout. Ajuda profissionais a recuperarem o equilíbrio.", disponibilidade: "Segunda a Sexta, 08h-17h", online: false
+            },
+            {
+                id: 4, nome: "Dra. Joana Ferreira", especialidade: "Psicologia Infantil", experiencia: "10 anos", avaliacao: 5.0, totalAvaliacoes: 67, preco: 7000, localizacao: "Rangel", formacao: "Especialização em Psicologia Infantil", bio: "Terapia lúdica e desenvolvimento infantil. Atendimento acolhedor para crianças e adolescentes.", disponibilidade: "Terça a Sábado, 09h-18h", online: true
+            },
+            {
+                id: 5, nome: "Dr. Miguel Nzinga", especialidade: "Medo de Falar em Público", experiencia: "6 anos", avaliacao: 4.6, totalAvaliacoes: 45, preco: 6500, localizacao: "Mutamba", formacao: "Pós em Psicologia da Comunicação", bio: "Especialista em glossofobia e oratória. Ajuda a superar o medo de falar em público.", disponibilidade: "Segunda a Sábado, 10h-20h", online: true
+            },
+            {
+                id: 6, nome: "Dra. Sandra Lopes", especialidade: "Relacionamentos", experiencia: "9 anos", avaliacao: 4.8, totalAvaliacoes: 82, preco: 8000, localizacao: "Talatona", formacao: "Mestrado em Terapia Sistémica", bio: "Terapia de casal e familiar. Ajuda a construir relacionamentos saudáveis.", disponibilidade: "Segunda a Sexta, 09h-19h", online: true
+            }
+        ];
+
+        let psicologoSelecionado = null;
+
+        function renderPsicologos() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const especialidadeFilter = document.getElementById('especialidadeFilter').value;
+            const localizacaoFilter = document.getElementById('localizacaoFilter').value;
+            const avaliacaoFilter = parseFloat(document.getElementById('avaliacaoFilter').value);
+
+            const filtered = psicologos.filter(p => {
+                const matchSearch = p.nome.toLowerCase().includes(searchTerm) || p.especialidade.toLowerCase().includes(searchTerm);
+                const matchEspecialidade = !especialidadeFilter || p.especialidade === especialidadeFilter;
+                const matchLocalizacao = !localizacaoFilter || p.localizacao === localizacaoFilter;
+                const matchAvaliacao = !avaliacaoFilter || p.avaliacao >= avaliacaoFilter;
+                return matchSearch && matchEspecialidade && matchLocalizacao && matchAvaliacao;
+            });
+
+            const container = document.getElementById('psicologosContainer');
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-user-md"></i>
+                        <h3>Nenhum psicólogo encontrado</h3>
+                        <p>Tente ajustar os filtros de busca.</p>
+                        <button class="btn-primary" onclick="limparFiltros()">
+                            <i class="fas fa-eraser"></i> Limpar Filtros
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filtered.map(p => `
+                <div class="psicologo-card">
+                    <div class="psicologo-header">
+                        <div class="psicologo-avatar">${p.nome.charAt(0)}${p.nome.split(' ')[1]?.charAt(0) || ''}</div>
+                        <div class="psicologo-info">
+                            <h3>${p.nome}</h3>
+                            <div class="psicologo-rating">
+                                ${'★'.repeat(Math.floor(p.avaliacao))}${'☆'.repeat(5 - Math.floor(p.avaliacao))} 
+                                <span>${p.avaliacao} (${p.totalAvaliacoes} avaliações)</span>
+                            </div>
+                            <p><i class="fas fa-map-marker-alt"></i> ${p.localizacao} ${p.online ? '• Atende Online' : ''}</p>
+                        </div>
+                    </div>
+                    <div class="psicologo-body">
+                        <div class="psicologo-especialidades">
+                            <span class="especialidade-tag">${p.especialidade}</span>
+                            <span class="experiencia-tag"><i class="fas fa-clock"></i> ${p.experiencia}</span>
+                        </div>
+                        <p class="psicologo-bio">${p.bio}</p>
+                        <div class="psicologo-preco">
+                            <span class="preco">${p.preco.toLocaleString('pt-AO')} Kz</span>
+                            <span class="por-consulta">/ consulta de 1h</span>
+                        </div>
+                    </div>
+                    <div class="psicologo-footer">
+                        <button class="btn-detalhes" onclick="verDetalhes(${p.id})">
+                            <i class="fas fa-info-circle"></i> Ver Perfil
+                        </button>
+                        <button class="btn-agendar" onclick="abrirModalAgendar(${p.id})">
+                            <i class="fas fa-calendar-plus"></i> Agendar Consulta
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function verDetalhes(id) {
+            psicologoSelecionado = psicologos.find(p => p.id === id);
+            if (!psicologoSelecionado) return;
+
+            const modalBody = document.getElementById('detalhesBody');
+            modalBody.innerHTML = `
+                <div class="view-section">
+                    <div class="psicologo-perfil-header">
+                        <div class="psicologo-perfil-avatar">${psicologoSelecionado.nome.charAt(0)}${psicologoSelecionado.nome.split(' ')[1]?.charAt(0) || ''}</div>
+                        <div class="psicologo-perfil-info">
+                            <h2>${psicologoSelecionado.nome}</h2>
+                            <div class="psicologo-rating">
+                                ${'★'.repeat(Math.floor(psicologoSelecionado.avaliacao))}${'☆'.repeat(5 - Math.floor(psicologoSelecionado.avaliacao))} 
+                                <span>${psicologoSelecionado.avaliacao} (${psicologoSelecionado.totalAvaliacoes} avaliações)</span>
+                            </div>
+                            <p><i class="fas fa-map-marker-alt"></i> ${psicologoSelecionado.localizacao}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-section">
+                    <div class="view-section-title"><i class="fas fa-briefcase"></i> Informações Profissionais</div>
+                    <div class="view-grid">
+                        <div class="view-item"><span class="view-item-label">Especialidade</span><span class="view-item-value">${psicologoSelecionado.especialidade}</span></div>
+                        <div class="view-item"><span class="view-item-label">Experiência</span><span class="view-item-value">${psicologoSelecionado.experiencia}</span></div>
+                        <div class="view-item"><span class="view-item-label">Preço por Hora</span><span class="view-item-value">${psicologoSelecionado.preco.toLocaleString('pt-AO')} Kz</span></div>
+                        <div class="view-item"><span class="view-item-label">Disponibilidade</span><span class="view-item-value">${psicologoSelecionado.disponibilidade}</span></div>
+                    </div>
+                </div>
+                <div class="view-section">
+                    <div class="view-section-title"><i class="fas fa-graduation-cap"></i> Formação</div>
+                    <p>${psicologoSelecionado.formacao}</p>
+                </div>
+                <div class="view-section">
+                    <div class="view-section-title"><i class="fas fa-heart"></i> Sobre</div>
+                    <p>${psicologoSelecionado.bio}</p>
+                </div>
+            `;
+
+            document.getElementById('modalDetalhes').classList.add('active');
+        }
+
+        function abrirModalAgendar(id) {
+            psicologoSelecionado = psicologos.find(p => p.id === id);
+            if (!psicologoSelecionado) return;
+
+            const infoDiv = document.getElementById('psicologoSelecionado');
+            infoDiv.innerHTML = `
+                <i class="fas fa-user-md"></i>
+                <div>
+                    <strong>${psicologoSelecionado.nome}</strong><br>
+                    <small>${psicologoSelecionado.especialidade} • ${psicologoSelecionado.preco.toLocaleString('pt-AO')} Kz/consulta</small>
+                </div>
+            `;
+
+            document.getElementById('tipoConsulta').value = 'presencial';
+            calcularValor();
+            document.getElementById('modalAgendar').classList.add('active');
+        }
+
+        function agendarDoModal() {
+            if (psicologoSelecionado) {
+                fecharModal('modalDetalhes');
+                abrirModalAgendar(psicologoSelecionado.id);
+            }
+        }
+
+        function calcularValor() {
+            const tipo = document.getElementById('tipoConsulta').value;
+            let multiplicador = 1;
+            if (tipo === 'domicilio') multiplicador = 1.2;
+            if (psicologoSelecionado) {
+                const valor = psicologoSelecionado.preco * multiplicador;
+                document.getElementById('valorEstimado').value = valor.toLocaleString('pt-AO') + ' Kz';
+            }
+        }
+
+        function confirmarAgendamento() {
+            const data = document.getElementById('dataConsulta').value;
+            const horario = document.getElementById('horarioConsulta').value;
+            const tipo = document.getElementById('tipoConsulta').value;
+
+            if (!data || !horario || !tipo) {
+                mostrarToast('⚠️ Preencha todos os campos obrigatórios!', 'warning');
+                return;
+            }
+
+            mostrarToast(`✅ Consulta agendada com ${psicologoSelecionado.nome} para ${data} às ${horario}!`, 'success');
+            fecharModal('modalAgendar');
+            limparFormularioAgendamento();
+        }
+
+        function limparFormularioAgendamento() {
+            document.getElementById('dataConsulta').value = '';
+            document.getElementById('horarioConsulta').value = '';
+            document.getElementById('tipoConsulta').value = 'presencial';
+            document.getElementById('obsAgendamento').value = '';
+        }
+
+        function limparFiltros() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('especialidadeFilter').value = '';
+            document.getElementById('localizacaoFilter').value = '';
+            document.getElementById('avaliacaoFilter').value = '';
+            renderPsicologos();
+        }
+
+        function fecharModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        function mostrarToast(mensagem, tipo = 'success') {
+            const toast = document.createElement('div');
+            const icon = tipo === 'success' ? 'fa-check-circle' : (tipo === 'warning' ? 'fa-exclamation-triangle' : 'fa-info-circle');
+            const bgColor = tipo === 'success' ? '#10b981' : (tipo === 'warning' ? '#f59e0b' : '#2D7DD2');
+            toast.style.cssText = `
+                position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(100px);
+                background: ${bgColor}; color: white; padding: 12px 24px;
+                border-radius: 50px; z-index: 3000; font-size: 0.9rem;
+                font-weight: 500; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                transition: transform 0.3s ease; pointer-events: none; white-space: nowrap;
+            `;
+            toast.innerHTML = `<i class="fas ${icon}"></i> ${mensagem}`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.style.transform = 'translateX(-50%) translateY(0)', 10);
+            setTimeout(() => {
+                toast.style.transform = 'translateX(-50%) translateY(100px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Event Listeners
+        document.getElementById('searchInput').addEventListener('keyup', renderPsicologos);
+        document.getElementById('especialidadeFilter').addEventListener('change', renderPsicologos);
+        document.getElementById('localizacaoFilter').addEventListener('change', renderPsicologos);
+        document.getElementById('avaliacaoFilter').addEventListener('change', renderPsicologos);
+        document.getElementById('tipoConsulta').addEventListener('change', calcularValor);
+
+        // Dark Mode
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('psiqueline-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        themeToggle.innerHTML = savedTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('psiqueline-theme', newTheme);
+            themeToggle.innerHTML = newTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        });
+
+        // Fechar modais ao clicar fora
+        document.querySelectorAll('.modal-overlay').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.classList.remove('active');
+            });
+        });
+
+        renderPsicologos();
+
+        // Dropdowns
+        (function () {
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initDropdowns);
+            } else {
+                initDropdowns();
+            }
+
+            function initDropdowns() {
+                const notifBtn = document.getElementById('notifBtn');
+                const notifMenu = document.getElementById('notifMenu');
+                const notifDropdown = document.getElementById('notifDropdown');
+
+                if (notifBtn && notifMenu) {
+                    notifBtn.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        closeAllDropdowns();
+                        notifMenu.classList.toggle('show');
+                    });
+                    notifMenu.addEventListener('click', function (e) { e.stopPropagation(); });
+                }
+
+                const profileBtn = document.getElementById('profileBtn');
+                const profileMenu = document.getElementById('profileMenu');
+                const profileDropdown = document.getElementById('profileDropdown');
+
+                if (profileBtn && profileMenu) {
+                    profileBtn.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        closeAllDropdowns();
+                        profileMenu.classList.toggle('show');
+                    });
+                    profileMenu.addEventListener('click', function (e) { e.stopPropagation(); });
+                }
+
+                function closeAllDropdowns() {
+                    if (notifMenu) notifMenu.classList.remove('show');
+                    if (profileMenu) profileMenu.classList.remove('show');
+                }
+
+                document.addEventListener('click', function (e) {
+                    if (notifDropdown && !notifDropdown.contains(e.target) && notifMenu) notifMenu.classList.remove('show');
+                    if (profileDropdown && !profileDropdown.contains(e.target) && profileMenu) profileMenu.classList.remove('show');
+                });
+            }
+        })();
+    </script>
+
+    <style>
+        /* ==========================================================
+           ESTILOS DA PÁGINA DE PSICÓLOGOS
+        ========================================================== */
+        .filters-bar {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 40px;
+            padding: 0.4rem 1rem;
+        }
+
+        .filter-group input,
+        .filter-group select {
+            background: none;
+            border: none;
+            outline: none;
+            color: var(--text-primary);
+            padding: 0.2rem;
+            font-size: 0.85rem;
+        }
+
+        .psicologos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .psicologo-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--raio-card);
+            overflow: hidden;
+            transition: all var(--transicao);
+        }
+
+        .psicologo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--azul-medio);
+        }
+
+        .psicologo-header {
+            background: linear-gradient(135deg, rgba(45, 125, 210, 0.1), transparent);
+            padding: 1.2rem;
+            display: flex;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .psicologo-avatar {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--azul-medio), var(--azul-claro));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .psicologo-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .psicologo-rating {
+            color: var(--laranja);
+            font-size: 0.8rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .psicologo-rating span {
+            color: var(--text-muted);
+        }
+
+        .psicologo-info p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .psicologo-body {
+            padding: 1.2rem;
+        }
+
+        .psicologo-especialidades {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .especialidade-tag {
+            background: rgba(45, 125, 210, 0.1);
+            color: var(--azul-medio);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .experiencia-tag {
+            background: var(--glass-bg);
+            color: var(--text-muted);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+        }
+
+        .psicologo-bio {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .psicologo-preco {
+            margin-bottom: 1rem;
+        }
+
+        .preco {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--azul-medio);
+        }
+
+        .por-consulta {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .psicologo-footer {
+            padding: 1rem 1.2rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .btn-detalhes,
+        .btn-agendar {
+            flex: 1;
+            padding: 0.6rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transicao);
+            border: none;
+        }
+
+        .btn-detalhes {
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .btn-detalhes:hover {
+            background: var(--azul-medio);
+            color: white;
+        }
+
+        .btn-agendar {
+            background: var(--azul-medio);
+            color: white;
+        }
+
+        .btn-agendar:hover {
+            background: var(--azul-claro);
+            transform: translateY(-2px);
+        }
+
+        .psicologo-perfil-header {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .psicologo-perfil-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--azul-medio), var(--azul-claro));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .psicologo-perfil-info h2 {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            background: var(--bg-card);
+            border-radius: var(--raio-card);
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .empty-state h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .psicologos-container {
+                grid-template-columns: 1fr;
+            }
+
+            .filters-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-group {
+                justify-content: space-between;
+            }
+
+            .psicologo-footer {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <style>
+        /* ==========================================================
+           PSIQUELINE – PACIENTE DASHBOARD (BASE)
+        ========================================================== */
+        :root {
+            --bg-primary: #f0f2f5;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #666666;
+            --text-muted: #888888;
+            --border-color: #e0e0e0;
+            --sidebar-bg: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.9);
+            --glass-border: rgba(0, 0, 0, 0.08);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
+            --azul-escuro: #1A4F8A;
+            --azul-medio: #2D7DD2;
+            --azul-claro: #4a9eff;
+            --verde: #10b981;
+            --vermelho: #ef4444;
+            --laranja: #f59e0b;
+            --roxo: #8b5cf6;
+            --raio-card: 16px;
+            --transicao: 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #141824;
+            --bg-card: #1a1f2e;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #707070;
+            --border-color: #2a2f3f;
+            --sidebar-bg: #0f1420;
+            --glass-bg: rgba(26, 31, 46, 0.95);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            transition: all var(--transicao);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
+            z-index: 100;
+            transition: all var(--transicao);
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.8rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .sidebar-logo .logo-psique {
+            color: var(--azul-escuro);
+        }
+
+        .sidebar-logo .logo-line {
+            color: var(--azul-medio);
+        }
+
+        .sidebar-user {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background: var(--glass-bg);
+            border-radius: var(--raio-card);
+            border: 1px solid var(--glass-border);
+        }
+
+        .sidebar-user-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--azul-medio), var(--azul-claro));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: white;
+        }
+
+        .sidebar-user-info h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .sidebar-user-info p {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+        }
+
+        .sidebar-nav {
+            padding: 0 1rem;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.9rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: var(--raio-card);
+            color: var(--text-secondary);
+            transition: all var(--transicao);
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .nav-item i {
+            width: 22px;
+            font-size: 1.1rem;
+        }
+
+        .nav-item:hover {
+            background: var(--glass-bg);
+            color: var(--azul-medio);
+            transform: translateX(5px);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(90deg, rgba(45, 125, 210, 0.15), transparent);
+            color: var(--azul-medio);
+            border-left: 3px solid var(--azul-medio);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 1.5rem 2rem;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .page-title p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: 0.2rem;
+        }
+
+        .top-bar-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            position: relative;
+        }
+
+        .notification-btn,
+        .theme-toggle {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transicao);
+            color: var(--text-primary);
+        }
+
+        .notification-btn:hover,
+        .theme-toggle:hover {
+            background: var(--azul-medio);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--vermelho);
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            font-size: 0.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: var(--glass-bg);
+            padding: 0.3rem 0.8rem 0.3rem 0.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            border: 1px solid var(--glass-border);
+            transition: all var(--transicao);
+        }
+
+        .user-profile:hover {
+            background: var(--azul-medio);
+            color: white;
+        }
+
+        .profile-avatar {
+            position: relative;
+            width: 38px;
+            height: 38px;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .online-status {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            background: var(--verde);
+            border-radius: 50%;
+            border: 2px solid var(--bg-card);
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .profile-role {
+            font-size: 0.65rem;
+            opacity: 0.7;
+        }
+
+        .btn-primary {
+            background: var(--azul-medio);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transicao);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all var(--transicao);
+            color: var(--text-primary);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            width: 360px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            display: none;
+            overflow: hidden;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+            animation: fadeInDown 0.2s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .mark-all-read {
+            font-size: 0.7rem;
+            font-weight: normal;
+            color: var(--azul-medio);
+            cursor: pointer;
+        }
+
+        .dropdown-item {
+            padding: 0.8rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            cursor: pointer;
+            transition: background var(--transicao);
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .dropdown-item:hover {
+            background: var(--glass-bg);
+        }
+
+        .dropdown-item.unread {
+            background: rgba(45, 125, 210, 0.05);
+        }
+
+        .unread-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--azul-medio);
+            border-radius: 50%;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .dropdown-item i {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass-bg);
+            border-radius: 12px;
+            font-size: 1rem;
+        }
+
+        .dropdown-item-content {
+            flex: 1;
+        }
+
+        .dropdown-item-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .dropdown-item-description {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-bottom: 0.2rem;
+        }
+
+        .dropdown-item-time {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+        }
+
+        .dropdown-footer {
+            padding: 0.8rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .dropdown-footer a {
+            color: var(--azul-medio);
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+
+        .profile-dropdown {
+            width: 280px;
+        }
+
+        .profile-header-dropdown {
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .profile-info-dropdown h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .profile-info-dropdown p {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .profile-dropdown .dropdown-item {
+            border-bottom: none;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border-color);
+            margin: 0.5rem 0;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--bg-card);
+            border-radius: 24px;
+            max-width: 550px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .info-box {
+            background: rgba(45, 125, 210, 0.1);
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .info-box i {
+            font-size: 1.2rem;
+            color: var(--azul-medio);
+        }
+
+        .view-section {
+            background: var(--glass-bg);
+            border-radius: 16px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .view-section-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--azul-medio);
+            margin-bottom: 0.8rem;
+            border-left: 3px solid var(--azul-medio);
+            padding-left: 0.8rem;
+        }
+
+        .view-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+        }
+
+        .view-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .view-item-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .view-item-value {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 80px;
+            }
+
+            .sidebar-header,
+            .sidebar-user-info,
+            .nav-item span {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 80px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .dropdown-menu {
+                width: 300px;
+                right: -50px;
+            }
+
+            .view-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+
+</html>

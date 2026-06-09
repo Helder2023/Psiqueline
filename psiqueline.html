@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PsiqueLine – Consultoria Psicológica</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lato:wght@300;400;700;900&display=swap"
+    rel="stylesheet" />
+
+
+</head>
+
+<body>
+
+  <!-- ========================================================
+       NAVBAR – Responsiva com menu mobile
+  ======================================================== -->
+  <nav class="navbar">
+    <a href="#" class="navbar-logo">
+      <span class="logo-psique">Psique</span><span class="logo-line">Line</span>
+    </a>
+
+    <!-- Links desktop -->
+    <ul class="navbar-links">
+      <li><a href="#home" class="nav-link active">Início</a></li>
+      <li><a href="#psicologos" class="nav-link">Psicólogos</a></li>
+      <li><a href="#areas" class="nav-link">Áreas</a></li>
+      <li><a href="#sobre" class="nav-link">Sobre Nós</a></li>
+      <li><a href="#contacto" class="nav-link">Contacto</a></li>
+    </ul>
+
+    <!-- Botão de login desktop -->
+    <a href="Login.html" class="btn-login" onclick="mostrarNotificacao('Área de login em desenvolvimento', 'info')">
+      <i class="fa fa-user"></i> Login
+    </a>
+
+    <!-- Botão hamburguer -->
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Menu mobile -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-menu-links">
+      <li><a href="#home" class="nav-link" onclick="fecharMenuMobile()">Início</a></li>
+      <li><a href="#psicologos" class="nav-link" onclick="fecharMenuMobile()">Psicólogos</a></li>
+      <li><a href="#areas" class="nav-link" onclick="fecharMenuMobile()">Áreas</a></li>
+      <li><a href="#sobre" class="nav-link" onclick="fecharMenuMobile()">Sobre Nós</a></li>
+      <li><a href="#contacto" class="nav-link" onclick="fecharMenuMobile()">Contacto</a></li>
+    </ul>
+    <a href="Login.html" class="btn-login" onclick="mostrarNotificacao('Área de login em desenvolvimento', 'info')">
+      <i class="fa fa-user"></i> Login
+    </a>
+  </div>
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+  <!-- ========================================================
+       HERO
+  ======================================================== -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1 class="hero-titulo">O seu bem-estar começa aqui</h1>
+      <p class="hero-subtitulo">
+        Conectamos você aos melhores psicólogos de Luanda.<br />
+        Consultas presenciais, ao domicílio ou por videochamada.
+      </p>
+      <a href="#psicologos" class="btn-primario">Ver Psicólogos</a>
+    </div>
+    <div class="hero-ondas">
+      <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="#ffffff" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       ÁREAS DE CONSULTA
+  ======================================================== -->
+  <section class="areas" id="areas">
+    <h2 class="secao-titulo">Áreas de Consulta</h2>
+    <p class="secao-subtitulo">Encontre o apoio certo para o seu momento</p>
+    <div class="areas-grid">
+      <div class="area-card"><i class="fa fa-brain area-icone"></i>
+        <h3>Distúrbios Mentais</h3>
+        <p>Apoio em ansiedade, depressão, TOC, bipolaridade e outros.</p>
+      </div>
+      <div class="area-card"><i class="fa fa-shield-heart area-icone"></i>
+        <h3>Falta de Confiança</h3>
+        <p>Trabalho da autoestima e segurança pessoal.</p>
+      </div>
+      <div class="area-card"><i class="fa fa-microphone area-icone"></i>
+        <h3>Medo de Falar em Público</h3>
+        <p>Técnicas para superar a glossofobia e comunicar com impacto.</p>
+      </div>
+      <div class="area-card"><i class="fa fa-crown area-icone"></i>
+        <h3>Liderança</h3>
+        <p>Desenvolvimento de competências de liderança e gestão de equipas.</p>
+      </div>
+      <div class="area-card"><i class="fa fa-heart area-icone"></i>
+        <h3>Relacionamentos</h3>
+        <p>Terapia de casal, familiar e gestão de conflitos.</p>
+      </div>
+      <div class="area-card"><i class="fa fa-briefcase area-icone"></i>
+        <h3>Burnout Profissional</h3>
+        <p>Apoio para esgotamento, stress laboral e reequilíbrio de vida.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       PSICÓLOGOS – Cards simplificados
+  ======================================================== -->
+ <!-- SECÇÃO PSICÓLOGOS -->
+<section class="psicologos" id="psicologos">
+  <h2 class="secao-titulo">Os Nossos Psicólogos</h2>
+  <p class="secao-subtitulo">Profissionais certificados prontos para ajudar</p>
+  <div class="psicologos-grid">
+    <div class="psi-card" onclick="abrirModalCompleto('António Sebastião', 'Psicólogo Clínico', '4.9', '12 anos', 'Talatona', 8500, 'Ansiedade, Depressão, TOC, Terapia Cognitivo-Comportamental')">
+      <div class="card-topo"><div class="card-foto"><span class="foto-iniciais">AS</span></div><div class="card-badge"><i class="fa fa-star"></i> 4.9</div></div>
+      <div class="card-corpo"><h3 class="card-nome">Dr. António Sebastião</h3><p class="card-area">Distúrbios Mentais · Ansiedade</p><div class="card-info-rapida"><span><i class="fa fa-clock"></i> 12 anos</span><span><i class="fa fa-users"></i> +230 clientes</span></div><p class="card-localizacao"><i class="fa fa-map-marker-alt"></i> Talatona</p><button class="btn-ver-perfil">Ver Perfil</button></div>
+    </div>
+    <div class="psi-card" onclick="abrirModalCompleto('Marlene Teixeira', 'Psicóloga Clínica', '4.8', '8 anos', 'Mutamba', 7500, 'Autoestima, Liderança, Coaching, Empoderamento Feminino')">
+      <div class="card-topo"><div class="card-foto"><span class="foto-iniciais">MT</span></div><div class="card-badge"><i class="fa fa-star"></i> 4.8</div></div>
+      <div class="card-corpo"><h3 class="card-nome">Dra. Marlene Teixeira</h3><p class="card-area">Autoestima · Liderança</p><div class="card-info-rapida"><span><i class="fa fa-clock"></i> 8 anos</span><span><i class="fa fa-users"></i> +180 clientes</span></div><p class="card-localizacao"><i class="fa fa-map-marker-alt"></i> Mutamba</p><button class="btn-ver-perfil">Ver Perfil</button></div>
+    </div>
+    <div class="psi-card" onclick="abrirModalCompleto('Carlos Domingos', 'Psicólogo do Trabalho', '4.7', '15 anos', 'Vila-Alice', 9000, 'Burnout, Stress Laboral, Psicologia Organizacional, Resiliência')">
+      <div class="card-topo"><div class="card-foto"><span class="foto-iniciais">CD</span></div><div class="card-badge"><i class="fa fa-star"></i> 4.7</div></div>
+      <div class="card-corpo"><h3 class="card-nome">Dr. Carlos Domingos</h3><p class="card-area">Burnout · Stress</p><div class="card-info-rapida"><span><i class="fa fa-clock"></i> 15 anos</span><span><i class="fa fa-users"></i> +310 clientes</span></div><p class="card-localizacao"><i class="fa fa-map-marker-alt"></i> Vila-Alice</p><button class="btn-ver-perfil">Ver Perfil</button></div>
+    </div>
+  </div>
+</section>
+
+  <!-- MODAL DE PERFIL COM FORMULÁRIO DE CONSULTA -->
+  <div class="modal-overlay" id="modalOverlay" onclick="fecharModalSeCliqueExterno(event)">
+    <div class="modal" id="modalPrincipal">
+      <button class="modal-fechar" onclick="fecharModal()"><i class="fa fa-times"></i></button>
+      <div id="modalDinamico"></div>
+    </div>
+  </div>
+
+
+
+  <!-- ========================================================
+       SOBRE NÓS
+  ======================================================== -->
+  <section class="sobre" id="sobre">
+    <div class="sobre-conteudo">
+      <div class="sobre-texto">
+        <h2 class="secao-titulo left">Sobre a PsiqueLine</h2>
+        <p>A <strong>PsiqueLine</strong> nasceu da vontade de tornar o apoio psicológico acessível a todos os angolanos.
+          Acreditamos que cuidar da mente é tão importante quanto cuidar do corpo.</p>
+        <p>Contamos com psicólogos formados nas melhores universidades nacionais, com experiência comprovada e dedicação
+          total ao bem-estar dos seus clientes.</p>
+        <div class="sobre-numeros">
+          <div class="numero-item"><span class="numero">6+</span><span class="numero-label">Especialistas</span></div>
+          <div class="numero-item"><span class="numero">1000+</span><span class="numero-label">Consultas</span></div>
+          <div class="numero-item"><span class="numero">98%</span><span class="numero-label">Satisfação</span></div>
+        </div>
+      </div>
+      <div class="sobre-img-placeholder"><i class="fa fa-hand-holding-heart"></i></div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       CONTACTO
+  ======================================================== -->
+  <section class="contacto" id="contacto">
+    <h2 class="secao-titulo">Fale Connosco</h2>
+    <p class="secao-subtitulo">Estamos disponíveis para ajudar</p>
+    <div class="contacto-grid">
+      <div class="contacto-item"><i class="fa fa-phone"></i>
+        <p>+244 900 000 000</p>
+      </div>
+      <div class="contacto-item"><i class="fa fa-envelope"></i>
+        <p>geral@psiqueline.ao</p>
+      </div>
+      <div class="contacto-item"><i class="fa fa-map-marker-alt"></i>
+        <p>Luanda, Angola</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       FOOTER
+  ======================================================== -->
+  <footer class="footer">
+    <p>&copy; 2025 PsiqueLine · Todos os direitos reservados · Luanda, Angola</p>
+  </footer>
+
+  <!-- ========================================================
+       MODAL DE PERFIL
+  ======================================================== -->
+  <div class="modal-overlay" id="modalOverlay" onclick="fecharModal(event)">
+    <div class="modal" id="modalPerfil">
+      <button class="modal-fechar" onclick="fecharModalBtn()"><i class="fa fa-times"></i></button>
+      <div id="modalConteudo"></div>
+    </div>
+  </div>
+ <script>
+  // Variável para guardar o psicólogo atual
+  let psicologoAtual = {};
+
+  // ========================================================
+  // FUNÇÃO PRINCIPAL: Abrir modal com perfil + formulário
+  // ========================================================
+  function abrirModalCompleto(nome, titulo, avaliacao, experiencia, localizacao, preco, especialidades) {
+    psicologoAtual = { nome, titulo, avaliacao, experiencia, localizacao, preco, especialidades };
+    
+    const modalConteudo = document.getElementById('modalDinamico');
+    const iniciais = nome.split(' ').map(n => n[0]).join('');
+    
+    modalConteudo.innerHTML = `
+      <!-- TOPO DO PERFIL -->
+      <div class="modal-perfil-topo">
+        <div class="modal-foto">
+          <span class="modal-foto-iniciais">${iniciais}</span>
+        </div>
+        <div>
+          <h2 class="modal-nome">${nome}</h2>
+          <p class="modal-area">${titulo}</p>
+          <div class="modal-avaliacao">
+            <i class="fa fa-star"></i>
+            <span>${avaliacao} (120 avaliações)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-corpo">
+        <!-- ABAS -->
+        <div class="modal-abas">
+          <button class="modal-aba-btn ativa" onclick="trocarAba('sobre', this)">Sobre</button>
+          <button class="modal-aba-btn" onclick="trocarAba('formacao', this)">Formação</button>
+          <button class="modal-aba-btn" onclick="trocarAba('agendar', this)">Agendar Consulta</button>
+        </div>
+
+        <!-- ABA SOBRE -->
+        <div class="modal-aba-conteudo ativa" id="aba-sobre">
+          <div class="info-linha"><i class="fa fa-user-md"></i><span><strong>${nome}</strong> é ${titulo.toLowerCase()} com ${experiencia} de experiência clínica.</span></div>
+          <div class="info-linha"><i class="fa fa-map-marker-alt"></i><span><strong>Localização:</strong> ${localizacao}</span></div>
+          <div class="info-linha"><i class="fa fa-clock"></i><span><strong>Experiência:</strong> ${experiencia}</span></div>
+          <div class="info-linha"><i class="fa fa-star"></i><span><strong>Avaliação:</strong> ${avaliacao} / 5.0</span></div>
+          <div class="info-linha"><i class="fa fa-heart"></i><span><strong>Especialidades:</strong> ${especialidades}</span></div>
+          <div class="info-linha"><i class="fa fa-calendar"></i><span><strong>Disponibilidade:</strong> Segunda a Sexta, 08h - 18h</span></div>
+          <div class="info-linha"><i class="fa fa-money-bill"></i><span><strong>Preço por hora:</strong> ${preco.toLocaleString('pt-AO')} Kz</span></div>
+        </div>
+
+        <!-- ABA FORMAÇÃO -->
+        <div class="modal-aba-conteudo" id="aba-formacao">
+          <div style="background: var(--azul-claro); padding: 1rem; border-radius: 16px; margin-bottom: 1rem;">
+            <div class="info-linha"><i class="fa fa-graduation-cap"></i><div><strong>Licenciatura em Psicologia</strong><br><span style="font-size:0.85rem;">Universidade Agostinho Neto (UAN) - 2010</span></div></div>
+          </div>
+          <div style="background: var(--azul-claro); padding: 1rem; border-radius: 16px; margin-bottom: 1rem;">
+            <div class="info-linha"><i class="fa fa-graduation-cap"></i><div><strong>Pós-Graduação em Psicoterapia</strong><br><span style="font-size:0.85rem;">Universidade Lusíada - 2013</span></div></div>
+          </div>
+          <div style="background: var(--azul-claro); padding: 1rem; border-radius: 16px;">
+            <div class="info-linha"><i class="fa fa-certificate"></i><div><strong>Especialização em Terapia Cognitivo-Comportamental</strong><br><span style="font-size:0.85rem;">Instituto de Psicologia Aplicada - 2015</span></div></div>
+          </div>
+        </div>
+
+        <!-- ABA AGENDAR CONSULTA (FORMULÁRIO COMPLETO) -->
+        <div class="modal-aba-conteudo" id="aba-agendar">
+          <div class="form-consulta">
+            <div class="form-titulo">
+              <i class="fa fa-calendar-check"></i>
+              <span>Marcar consulta com ${nome.split(' ')[0]}</span>
+            </div>
+            <p style="font-size:0.85rem; color:var(--cinza-claro); margin-bottom:1rem;">Preencha os dados abaixo para agendar</p>
+
+            <form id="formAgendamento" onsubmit="return false;">
+              <div class="form-grid">
+                <div class="campo-form">
+                  <label><i class="fa fa-user"></i> Nome completo *</label>
+                  <input type="text" id="nomeCliente" placeholder="Seu nome" required>
+                </div>
+                <div class="campo-form">
+                  <label><i class="fa fa-envelope"></i> E-mail *</label>
+                  <input type="email" id="emailCliente" placeholder="seu@email.com" required>
+                </div>
+                <div class="campo-form">
+                  <label><i class="fa fa-phone"></i> Telefone *</label>
+                  <input type="tel" id="telefoneCliente" placeholder="+244 9XX XXX XXX" required>
+                </div>
+                <div class="campo-form">
+                  <label><i class="fa fa-calendar"></i> Data da consulta *</label>
+                  <input type="date" id="dataConsulta" required>
+                </div>
+                <div class="campo-form">
+                  <label><i class="fa fa-clock"></i> Horário *</label>
+                  <select id="horarioConsulta" required>
+                    <option value="">Selecione horário</option>
+                    <option>08:00 - 09:00</option>
+                    <option>09:00 - 10:00</option>
+                    <option>10:00 - 11:00</option>
+                    <option>11:00 - 12:00</option>
+                    <option>14:00 - 15:00</option>
+                    <option>15:00 - 16:00</option>
+                    <option>16:00 - 17:00</option>
+                  </select>
+                </div>
+                <div class="campo-form">
+                  <label><i class="fa fa-video"></i> Tipo de consulta *</label>
+                  <select id="tipoConsulta" required>
+                    <option value="presencial">Presencial</option>
+                    <option value="video">Videochamada</option>
+                    <option value="domicilio">Ao domicílio (+20%)</option>
+                  </select>
+                </div>
+                <div class="campo-form campo-full">
+                  <label><i class="fa fa-comment"></i> Mensagem (opcional)</label>
+                  <textarea rows="2" id="mensagemCliente" placeholder="Descreva resumidamente o motivo da consulta..."></textarea>
+                </div>
+              </div>
+
+              <div class="preco-display">
+                <i class="fa fa-money-bill-wave"></i> Valor estimado: 
+                <span id="valorConsulta">${preco.toLocaleString('pt-AO')}</span> Kz
+              </div>
+
+              <button type="button" class="btn-marcar" onclick="enviarAgendamento()">
+                <i class="fa fa-check-circle"></i> Confirmar Agendamento
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    `;
+    
+    // Mostrar modal
+    document.getElementById('modalOverlay').classList.add('ativo');
+    document.body.style.overflow = 'hidden'; // Previne scroll do body
+    
+    // Adicionar evento para recalcular preço quando mudar tipo de consulta
+    setTimeout(() => {
+      const selectTipo = document.getElementById('tipoConsulta');
+      if (selectTipo) {
+        selectTipo.addEventListener('change', atualizarPrecoConsulta);
+      }
+    }, 100);
+  }
+
+  // ========================================================
+  // ATUALIZAR PREÇO BASEADO NO TIPO DE CONSULTA
+  // ========================================================
+  function atualizarPrecoConsulta() {
+    const selectTipo = document.getElementById('tipoConsulta');
+    const precoSpan = document.getElementById('valorConsulta');
+    const precoBase = psicologoAtual.preco || 8500;
+    
+    let multiplicador = 1;
+    if (selectTipo.value === 'domicilio') multiplicador = 1.2;
+    else if (selectTipo.value === 'video') multiplicador = 0.9;
+    
+    const valorFinal = precoBase * multiplicador;
+    precoSpan.textContent = valorFinal.toLocaleString('pt-AO');
+  }
+
+  // ========================================================
+  // ENVIAR AGENDAMENTO (simulação com validação)
+  // ========================================================
+  function enviarAgendamento() {
+    const nome = document.getElementById('nomeCliente')?.value.trim();
+    const email = document.getElementById('emailCliente')?.value.trim();
+    const telefone = document.getElementById('telefoneCliente')?.value.trim();
+    const data = document.getElementById('dataConsulta')?.value;
+    const horario = document.getElementById('horarioConsulta')?.value;
+    const tipo = document.getElementById('tipoConsulta')?.value;
+    const mensagem = document.getElementById('mensagemCliente')?.value;
+
+    if (!nome || !email || !telefone || !data || !horario || !tipo) {
+      mostrarToast('⚠️ Por favor, preencha todos os campos obrigatórios!', 'warning');
+      return;
+    }
+
+    if (!email.includes('@') || !email.includes('.')) {
+      mostrarToast('⚠️ E-mail inválido', 'warning');
+      return;
+    }
+
+    if (telefone.replace(/\D/g, '').length < 9) {
+      mostrarToast('⚠️ Telefone inválido', 'warning');
+      return;
+    }
+
+    // Simulação de envio
+    mostrarToast(`✅ Consulta agendada com ${psicologoAtual.nome} para ${data} às ${horario}. Entraremos em contacto!`, 'success');
+    
+    // Fechar modal após 2 segundos
+    setTimeout(() => {
+      fecharModal();
+    }, 2000);
+  }
+
+  // ========================================================
+  // TROCAR ABAS
+  // ========================================================
+  function trocarAba(abaId, elementoBotao) {
+    // Remove active de todos os botões e conteúdos
+    document.querySelectorAll('.modal-aba-btn').forEach(btn => btn.classList.remove('ativa'));
+    document.querySelectorAll('.modal-aba-conteudo').forEach(conteudo => conteudo.classList.remove('ativa'));
+    
+    elementoBotao.classList.add('ativa');
+    const abaElement = document.getElementById(`aba-${abaId}`);
+    if (abaElement) {
+      abaElement.classList.add('ativa');
+    }
+  }
+
+  // ========================================================
+  // FECHAR MODAL CORRETAMENTE
+  // ========================================================
+  function fecharModal() {
+    const modalOverlay = document.getElementById('modalOverlay');
+    modalOverlay.classList.remove('ativo');
+    document.body.style.overflow = ''; // Restaura scroll do body
+  }
+
+  // ========================================================
+  // FECHAR MODAL AO CLICAR NO OVERLAY
+  // ========================================================
+  document.getElementById('modalOverlay').addEventListener('click', function(e) {
+    if (e.target === this) {
+      fecharModal();
+    }
+  });
+
+  // ========================================================
+  // FECHAR MODAL COM TECLA ESC
+  // ========================================================
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      const modalOverlay = document.getElementById('modalOverlay');
+      if (modalOverlay.classList.contains('ativo')) {
+        fecharModal();
+      }
+    }
+  });
+
+  // ========================================================
+  // TOAST NOTIFICATION
+  // ========================================================
+  function mostrarToast(mensagem, tipo = 'info') {
+    // Remove toast existente
+    const toastExistente = document.querySelector('.toast-notification');
+    if (toastExistente) toastExistente.remove();
+    
+    const toast = document.createElement('div');
+    toast.className = 'toast-notification';
+    toast.innerHTML = `<i class="fa ${tipo === 'success' ? 'fa-check-circle' : 'fa-exclamation-triangle'}"></i> ${mensagem}`;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => toast.classList.add('show'), 10);
+    
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => toast.remove(), 300);
+    }, 3000);
+  }
+</script>
+  <script>
+    // ========================================================
+    // MENU HAMBURGUER RESPONSIVO
+    // ========================================================
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function toggleMenuMobile() {
+      mobileMenu.classList.toggle('active');
+      menuOverlay.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+
+    function fecharMenuMobile() {
+      mobileMenu.classList.remove('active');
+      menuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', toggleMenuMobile);
+    menuOverlay.addEventListener('click', fecharMenuMobile);
+
+    // Fechar menu ao redimensionar para desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        fecharMenuMobile();
+      }
+    });
+
+    // Active link highlighting on scroll
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section[id]');
+      const scrollPos = window.scrollY + 100;
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+
+        if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+          document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${sectionId}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    });
+
+    // ========================================================
+    // MODAL DO PERFIL
+    // ========================================================
+    function abrirModalPerfil(nome, titulo, avaliacao, experiencia, localizacao) {
+      const modalConteudo = document.getElementById('modalConteudo');
+      const modalOverlay = document.getElementById('modalOverlay');
+
+      modalConteudo.innerHTML = `
+      <div class="modal-perfil-topo">
+        <div class="modal-foto"><span class="modal-foto-iniciais">${nome.charAt(0)}${nome.split(' ')[1]?.charAt(0) || nome.charAt(1)}</span></div>
+        <div><h2 class="modal-nome">${nome}</h2><p class="modal-area">${titulo}</p><div class="modal-avaliacao"><i class="fa fa-star"></i><span>${avaliacao} (45 avaliações)</span></div></div>
+      </div>
+      <div class="modal-corpo">
+        <div class="modal-abas">
+          <button class="modal-aba-btn ativa" onclick="trocarAbaModal('sobre', this)">Sobre</button>
+          <button class="modal-aba-btn" onclick="trocarAbaModal('formacao', this)">Formação</button>
+          <button class="modal-aba-btn" onclick="trocarAbaModal('experiencia', this)">Experiência</button>
+        </div>
+        <div class="modal-aba-conteudo ativa" id="aba-sobre">
+          <p style="line-height:1.7; margin-bottom:1.2rem;">${nome} é um profissional dedicado com ${experiencia} de experiência na área da psicologia. Especialista em ajudar pacientes a superar desafios emocionais e alcançar o bem-estar mental.</p>
+          <div class="info-linha"><i class="fa fa-map-marker-alt"></i><span><strong>Localização:</strong> ${localizacao}</span></div>
+          <div class="info-linha"><i class="fa fa-clock"></i><span><strong>Experiência:</strong> ${experiencia}</span></div>
+          <div class="info-linha"><i class="fa fa-money-bill"></i><span><strong>Preço base:</strong> 8.500 KZ / hora</span></div>
+          <div class="info-linha"><i class="fa fa-calendar"></i><span><strong>Disponibilidade:</strong> Segunda a Sexta</span></div>
+        </div>
+        <div class="modal-aba-conteudo" id="aba-formacao">
+          <div class="info-linha" style="align-items:flex-start; padding:0.8rem; background:var(--azul-claro); border-radius:10px; margin-bottom:0.7rem;">
+            <i class="fa fa-graduation-cap"></i>
+            <div><p style="font-weight:700;">Licenciatura em Psicologia</p><p style="font-size:0.85rem;">Universidade Agostinho Neto · 2010</p></div>
+          </div>
+          <div class="info-linha" style="align-items:flex-start; padding:0.8rem; background:var(--azul-claro); border-radius:10px;">
+            <i class="fa fa-graduation-cap"></i>
+            <div><p style="font-weight:700;">Pós-Graduação em Psicoterapia</p><p style="font-size:0.85rem;">Universidade Lusíada · 2013</p></div>
+          </div>
+        </div>
+        <div class="modal-aba-conteudo" id="aba-experiencia">
+          <div class="info-linha" style="align-items:flex-start; padding:0.8rem; background:var(--azul-claro); border-radius:10px; margin-bottom:0.7rem;">
+            <i class="fa fa-briefcase"></i>
+            <div><p style="font-weight:700;">Psicólogo Clínico Sénior</p><p style="font-size:0.85rem;">Clínica Esperança · 2013 - Presente</p></div>
+          </div>
+        </div>
+      </div>
+    `;
+      modalOverlay.classList.add('ativo');
+    }
+
+    function trocarAbaModal(abaId, elementoBotao) {
+      // Remove active de todos os botões e conteúdos
+      document.querySelectorAll('.modal-aba-btn').forEach(btn => btn.classList.remove('ativa'));
+      document.querySelectorAll('.modal-aba-conteudo').forEach(conteudo => conteudo.classList.remove('ativa'));
+
+      elementoBotao.classList.add('ativa');
+      document.getElementById(`aba-${abaId}`).classList.add('ativa');
+    }
+
+    function fecharModal(event) {
+      if (event.target === document.getElementById('modalOverlay')) {
+        document.getElementById('modalOverlay').classList.remove('ativo');
+      }
+    }
+
+    function fecharModalBtn() {
+      document.getElementById('modalOverlay').classList.remove('ativo');
+    }
+
+    // ========================================================
+    // NOTIFICAÇÃO
+    // ========================================================
+    function mostrarNotificacao(mensagem, tipo = 'info') {
+      const toast = document.createElement('div');
+      toast.style.cssText = `
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      background: var(--azul-escuro); color: white; padding: 12px 24px;
+      border-radius: 50px; z-index: 3000; font-size: 0.9rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2); white-space: nowrap;
+    `;
+      toast.innerHTML = `<i class="fas fa-info-circle"></i> ${mensagem}`;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+    }
+
+    // Smooth scroll para links âncora
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+  <style>
+    /* ==========================================================
+       PSIQUELINE – ESTILOS COMPLETOS COM MODAL E FORMULÁRIO
+    ========================================================== */
+    :root {
+      --azul-escuro: #1A4F8A;
+      --azul-medio: #2D7DD2;
+      --azul-claro: #E8F2FB;
+      --azul-card: #D6E8F7;
+      --branco: #FFFFFF;
+      --cinza-texto: #444444;
+      --cinza-claro: #777777;
+      --cinza-fundo: #F5F8FC;
+      --sombra: 0 4px 20px rgba(26, 79, 138, 0.12);
+      --sombra-card: 0 6px 28px rgba(26, 79, 138, 0.14);
+      --raio: 16px;
+      --raio-btn: 50px;
+      --transicao: 0.3s ease;
+      --verde-sucesso: #27ae60;
+      --laranja-warning: #f39c12;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--cinza-texto);
+      background-color: var(--branco);
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 70px;
+      background: var(--branco);
+      box-shadow: 0 2px 15px rgba(26, 79, 138, 0.10);
+    }
+
+    .navbar-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    .logo-psique {
+      color: var(--azul-escuro);
+    }
+
+    .logo-line {
+      color: var(--azul-medio);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 60vh;
+      background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 2rem 60px;
+      position: relative;
+    }
+
+    .hero-titulo {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--branco);
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitulo {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    /* SECÇÃO PSICÓLOGOS */
+    .psicologos {
+      padding: 5rem 2rem;
+      background: var(--branco);
+    }
+
+    .secao-titulo {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      color: var(--azul-escuro);
+      text-align: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .secao-subtitulo {
+      text-align: center;
+      color: var(--cinza-claro);
+      font-size: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .psicologos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .psi-card {
+      background: var(--branco);
+      border-radius: var(--raio);
+      box-shadow: var(--sombra);
+      overflow: hidden;
+      transition: transform var(--transicao), box-shadow var(--transicao);
+      cursor: pointer;
+    }
+
+    .psi-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--sombra-card);
+    }
+
+    .card-topo {
+      background: linear-gradient(135deg, var(--azul-escuro), var(--azul-medio));
+      padding: 1.8rem 1.5rem 1rem;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      min-height: 130px;
+    }
+
+    .card-foto {
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      background: var(--branco);
+      border: 3px solid rgba(255, 255, 255, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .foto-iniciais {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--azul-escuro);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--branco);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .card-badge .fa-star {
+      color: #FFD700;
+    }
+
+    .card-corpo {
+      padding: 1.3rem 1.5rem 1.5rem;
+    }
+
+    .card-nome {
+      font-size: 1.1rem;
+      color: var(--azul-escuro);
+      margin-bottom: 0.3rem;
+      font-weight: 700;
+    }
+
+    .card-area {
+      font-size: 0.82rem;
+      color: var(--azul-medio);
+      margin-bottom: 0.9rem;
+      font-weight: 700;
+    }
+
+    .card-info-rapida {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-info-rapida span {
+      font-size: 0.82rem;
+      color: var(--cinza-claro);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .card-localizacao {
+      font-size: 0.82rem;
+      color: var(--cinza-claro);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-ver-perfil {
+      width: 100%;
+      padding: 0.65rem;
+      background: var(--azul-claro);
+      color: var(--azul-escuro);
+      border: 2px solid var(--azul-medio);
+      border-radius: var(--raio-btn);
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all var(--transicao);
+    }
+
+    .btn-ver-perfil:hover {
+      background: var(--azul-escuro);
+      color: var(--branco);
+    }
+
+    /* ========================================================
+       MODAL DE PERFIL COM FORMULÁRIO DE CONSULTA
+    ======================================================== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      overflow-y: auto;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-overlay.ativo {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--branco);
+      border-radius: 24px;
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      animation: slideUp 0.35s ease;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .modal-fechar {
+      position: sticky;
+      top: 1rem;
+      right: 1rem;
+      float: right;
+      background: var(--azul-claro);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--azul-escuro);
+      transition: all var(--transicao);
+      z-index: 10;
+      margin: 0.5rem;
+    }
+
+    .modal-fechar:hover {
+      background: var(--azul-medio);
+      color: var(--branco);
+      transform: rotate(90deg);
+    }
+
+    /* Topo do modal com info do psicólogo */
+    .modal-perfil-topo {
+      background: linear-gradient(135deg, var(--azul-escuro), var(--azul-medio));
+      padding: 2rem 2rem 2rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      border-radius: 24px 24px 0 0;
+    }
+
+    .modal-foto {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: var(--branco);
+      border: 4px solid rgba(255, 255, 255, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-foto-iniciais {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--azul-escuro);
+    }
+
+    .modal-nome {
+      font-size: 1.5rem;
+      color: var(--branco);
+      margin-bottom: 0.3rem;
+    }
+
+    .modal-area {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-avaliacao {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: #FFD700;
+    }
+
+    /* Corpo do modal com abas */
+    .modal-corpo {
+      padding: 1.5rem 2rem 2rem;
+    }
+
+    .modal-abas {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--azul-claro);
+      padding-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .modal-aba-btn {
+      background: none;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--cinza-claro);
+      border-radius: 30px;
+      transition: all var(--transicao);
+    }
+
+    .modal-aba-btn.ativa {
+      background: var(--azul-claro);
+      color: var(--azul-escuro);
+    }
+
+    .modal-aba-conteudo {
+      display: none;
+      animation: fadeContent 0.3s ease;
+    }
+
+    .modal-aba-conteudo.ativa {
+      display: block;
+    }
+
+    @keyframes fadeContent {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .info-linha {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      font-size: 0.92rem;
+    }
+
+    .info-linha i {
+      color: var(--azul-medio);
+      width: 20px;
+      margin-top: 2px;
+    }
+
+    /* FORMULÁRIO DE CONSULTA */
+    .form-consulta {
+      background: var(--cinza-fundo);
+      padding: 1.5rem;
+      border-radius: 20px;
+      margin-top: 1rem;
+    }
+
+    .form-titulo {
+      font-size: 1.2rem;
+      color: var(--azul-escuro);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .campo-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .campo-form label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--azul-escuro);
+    }
+
+    .campo-form input,
+    .campo-form select,
+    .campo-form textarea {
+      padding: 0.7rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9rem;
+      transition: all var(--transicao);
+    }
+
+    .campo-form input:focus,
+    .campo-form select:focus,
+    .campo-form textarea:focus {
+      outline: none;
+      border-color: var(--azul-medio);
+      box-shadow: 0 0 0 3px rgba(45, 125, 210, 0.2);
+    }
+
+    .campo-full {
+      grid-column: span 2;
+    }
+
+    .preco-display {
+      background: var(--azul-escuro);
+      color: white;
+      padding: 0.8rem;
+      border-radius: 12px;
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    .preco-display span {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .btn-marcar {
+      width: 100%;
+      background: linear-gradient(135deg, var(--azul-escuro), var(--azul-medio));
+      color: white;
+      padding: 1rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all var(--transicao);
+      margin-top: 0.5rem;
+    }
+
+    .btn-marcar:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(45, 125, 210, 0.4);
+    }
+
+    /* TOAST NOTIFICATION */
+    .toast-notification {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--azul-escuro);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      z-index: 3000;
+      font-weight: 600;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .toast-notification.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 700px) {
+      .modal-perfil-topo {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .campo-full {
+        grid-column: span 1;
+      }
+
+      .modal-corpo {
+        padding: 1rem;
+      }
+    }
+
+    footer {
+      background: var(--azul-escuro);
+      color: rgba(255, 255, 255, 0.7);
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+  </style>
+  <style>
+    /* ==========================================================
+       PSIQUELINE – FOLHA DE ESTILOS COMPLETA
+       Paleta: Branco (#FFFFFF) + Azul (#1A4F8A / #2D7DD2)
+       Com navbar responsiva
+    ========================================================== */
+
+    /* ----------------------------------------------------------
+       VARIÁVEIS GLOBAIS
+    ---------------------------------------------------------- */
+    :root {
+      --azul-escuro: #1A4F8A;
+      --azul-medio: #2D7DD2;
+      --azul-claro: #E8F2FB;
+      --azul-card: #D6E8F7;
+      --branco: #FFFFFF;
+      --cinza-texto: #444444;
+      --cinza-claro: #777777;
+      --cinza-fundo: #F5F8FC;
+      --sombra: 0 4px 20px rgba(26, 79, 138, 0.12);
+      --sombra-card: 0 6px 28px rgba(26, 79, 138, 0.14);
+      --raio: 16px;
+      --raio-btn: 50px;
+      --transicao: 0.3s ease;
+    }
+
+    /* ----------------------------------------------------------
+       RESET BÁSICO
+    ---------------------------------------------------------- */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--cinza-texto);
+      background-color: var(--branco);
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ----------------------------------------------------------
+       NAVBAR – Responsiva com hamburguer
+    ---------------------------------------------------------- */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 70px;
+      background: var(--branco);
+      box-shadow: 0 2px 15px rgba(26, 79, 138, 0.10);
+    }
+
+    .navbar-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-psique {
+      color: var(--azul-escuro);
+    }
+
+    .logo-line {
+      color: var(--azul-medio);
+    }
+
+    /* Links da navbar - desktop */
+    .navbar-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--cinza-texto);
+      transition: color var(--transicao);
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--azul-medio);
+      transition: width var(--transicao);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--azul-escuro);
+    }
+
+    .btn-login {
+      background: var(--azul-escuro);
+      color: var(--branco);
+      padding: 0.5rem 1.4rem;
+      border-radius: var(--raio-btn);
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: background var(--transicao), transform var(--transicao);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-login:hover {
+      background: var(--azul-medio);
+      transform: translateY(-1px);
+    }
+
+    /* Hamburguer (mobile) */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--azul-escuro);
+      border-radius: 2px;
+      transition: var(--transicao);
+    }
+
+    /* Menu mobile */
+    .mobile-menu {
+      position: fixed;
+      top: 70px;
+      left: -100%;
+      width: 80%;
+      max-width: 300px;
+      height: calc(100vh - 70px);
+      background: var(--branco);
+      box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
+      transition: left var(--transicao);
+      z-index: 999;
+      padding: 2rem 1.5rem;
+    }
+
+    .mobile-menu.active {
+      left: 0;
+    }
+
+    .mobile-menu-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .mobile-menu-links .nav-link {
+      font-size: 1.1rem;
+      display: block;
+      padding: 0.5rem 0;
+    }
+
+    .mobile-menu .btn-login {
+      display: inline-flex;
+      margin-top: 2rem;
+      justify-content: center;
+    }
+
+    /* Overlay do menu mobile */
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 998;
+      display: none;
+    }
+
+    .menu-overlay.active {
+      display: block;
+    }
+
+    /* Responsividade da navbar */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 0 1.5rem;
+      }
+
+      .navbar-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .btn-login {
+        display: none;
+      }
+
+      .mobile-menu .btn-login {
+        display: inline-flex;
+      }
+    }
+
+    /* ----------------------------------------------------------
+       BOTÕES REUTILIZÁVEIS
+    ---------------------------------------------------------- */
+    .btn-primario {
+      display: inline-block;
+      background: var(--azul-escuro);
+      color: var(--branco);
+      padding: 0.8rem 2.2rem;
+      border-radius: var(--raio-btn);
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background var(--transicao), transform var(--transicao), box-shadow var(--transicao);
+      box-shadow: 0 4px 14px rgba(26, 79, 138, 0.25);
+    }
+
+    .btn-primario:hover {
+      background: var(--azul-medio);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(45, 125, 210, 0.30);
+    }
+
+    .btn-primario.full {
+      width: 100%;
+      text-align: center;
+      padding: 0.9rem;
+    }
+
+    .btn-secundario {
+      display: inline-block;
+      background: transparent;
+      color: var(--azul-escuro);
+      padding: 0.7rem 2rem;
+      border-radius: var(--raio-btn);
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: 2px solid var(--azul-escuro);
+      cursor: pointer;
+      transition: all var(--transicao);
+    }
+
+    .btn-secundario:hover {
+      background: var(--azul-escuro);
+      color: var(--branco);
+    }
+
+    /* ----------------------------------------------------------
+       HERO
+    ---------------------------------------------------------- */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 2rem 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      top: -100px;
+      right: -100px;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      bottom: 50px;
+      left: -80px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-titulo {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      color: var(--branco);
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+
+    .hero-subtitulo {
+      font-size: 1.15rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-ondas {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      z-index: 1;
+    }
+
+    .hero-ondas svg {
+      display: block;
+    }
+
+    /* ----------------------------------------------------------
+       TÍTULOS DE SECÇÃO
+    ---------------------------------------------------------- */
+    .secao-titulo {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      color: var(--azul-escuro);
+      text-align: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .secao-titulo.left {
+      text-align: left;
+    }
+
+    .secao-subtitulo {
+      text-align: center;
+      color: var(--cinza-claro);
+      font-size: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    /* ----------------------------------------------------------
+       ÁREAS DE CONSULTA
+    ---------------------------------------------------------- */
+    .areas {
+      background: var(--cinza-fundo);
+      padding: 5rem 2rem;
+    }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .area-card {
+      background: var(--branco);
+      border-radius: var(--raio);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: var(--sombra);
+      transition: transform var(--transicao), box-shadow var(--transicao);
+      border-top: 4px solid var(--azul-claro);
+    }
+
+    .area-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--sombra-card);
+      border-top-color: var(--azul-medio);
+    }
+
+    .area-icone {
+      font-size: 2.2rem;
+      color: var(--azul-medio);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .area-card h3 {
+      font-size: 1rem;
+      color: var(--azul-escuro);
+      margin-bottom: 0.5rem;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+    }
+
+    .area-card p {
+      font-size: 0.88rem;
+      color: var(--cinza-claro);
+      line-height: 1.5;
+    }
+
+    /* ----------------------------------------------------------
+       PSICÓLOGOS
+    ---------------------------------------------------------- */
+    .psicologos {
+      padding: 5rem 2rem;
+      background: var(--branco);
+    }
+
+    .psicologos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .psi-card {
+      background: var(--branco);
+      border-radius: var(--raio);
+      box-shadow: var(--sombra);
+      overflow: hidden;
+      transition: transform var(--transicao), box-shadow var(--transicao);
+      cursor: pointer;
+    }
+
+    .psi-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--sombra-card);
+    }
+
+    .card-topo {
+      background: linear-gradient(135deg, var(--azul-escuro), var(--azul-medio));
+      padding: 1.8rem 1.5rem 1rem;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      min-height: 130px;
+    }
+
+    .card-foto {
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      background: var(--branco);
+      border: 3px solid rgba(255, 255, 255, 0.8);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .card-foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .foto-iniciais {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--azul-escuro);
+      letter-spacing: 1px;
+      z-index: 1;
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.20);
+      color: var(--branco);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .card-badge .fa-star {
+      color: #FFD700;
+    }
+
+    .card-corpo {
+      padding: 1.3rem 1.5rem 1.5rem;
+    }
+
+    .card-nome {
+      font-size: 1.1rem;
+      color: var(--azul-escuro);
+      margin-bottom: 0.3rem;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+    }
+
+    .card-area {
+      font-size: 0.82rem;
+      color: var(--azul-medio);
+      margin-bottom: 0.9rem;
+      font-weight: 700;
+    }
+
+    .card-info-rapida {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-info-rapida span {
+      font-size: 0.82rem;
+      color: var(--cinza-claro);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .card-info-rapida i {
+      color: var(--azul-medio);
+    }
+
+    .card-localizacao {
+      font-size: 0.82rem;
+      color: var(--cinza-claro);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card-localizacao i {
+      color: var(--azul-medio);
+    }
+
+    .btn-ver-perfil {
+      width: 100%;
+      padding: 0.65rem;
+      background: var(--azul-claro);
+      color: var(--azul-escuro);
+      border: 2px solid var(--azul-medio);
+      border-radius: var(--raio-btn);
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all var(--transicao);
+    }
+
+    .btn-ver-perfil:hover {
+      background: var(--azul-escuro);
+      color: var(--branco);
+      border-color: var(--azul-escuro);
+    }
+
+    /* ----------------------------------------------------------
+       SOBRE NÓS
+    ---------------------------------------------------------- */
+    .sobre {
+      background: var(--azul-claro);
+      padding: 5rem 2rem;
+    }
+
+    .sobre-conteudo {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .sobre-texto p {
+      line-height: 1.8;
+      color: var(--cinza-texto);
+      margin-bottom: 1rem;
+    }
+
+    .sobre-texto strong {
+      color: var(--azul-escuro);
+    }
+
+    .sobre-numeros {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .numero-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .numero {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--azul-escuro);
+      font-weight: 700;
+    }
+
+    .numero-label {
+      font-size: 0.8rem;
+      color: var(--cinza-claro);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .sobre-img-placeholder {
+      background: linear-gradient(135deg, var(--azul-escuro), var(--azul-medio));
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sobre-img-placeholder i {
+      font-size: 6rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .sobre-conteudo {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    /* ----------------------------------------------------------
+       CONTACTO
+    ---------------------------------------------------------- */
+    .contacto {
+      padding: 4rem 2rem;
+      background: var(--branco);
+      text-align: center;
+    }
+
+    .contacto-grid {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .contacto-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contacto-item i {
+      font-size: 1.8rem;
+      color: var(--azul-medio);
+    }
+
+    .contacto-item p {
+      font-size: 0.95rem;
+      color: var(--cinza-texto);
+    }
+
+    /* ----------------------------------------------------------
+       FOOTER
+    ---------------------------------------------------------- */
+    .footer {
+      background: var(--azul-escuro);
+      color: rgba(255, 255, 255, 0.7);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    /* ----------------------------------------------------------
+       MODAL
+    ---------------------------------------------------------- */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      overflow-y: auto;
+      backdrop-filter: blur(3px);
+    }
+
+    .modal-overlay.ativo {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--branco);
+      border-radius: var(--raio);
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      animation: slideUp 0.35s ease;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .modal-fechar {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--azul-claro);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--azul-escuro);
+      font-size: 0.9rem;
+      z-index: 10;
+      transition: background var(--transicao);
+    }
+
+    .modal-fechar:hover {
+      background: var(--azul-card);
+    }
+
+    .modal-perfil-topo {
+      background: linear-gradient(135deg, var(--azul-escuro), var(--azul-medio));
+      padding: 2rem 2rem 3rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      border-radius: var(--raio) var(--raio) 0 0;
+      position: relative;
+    }
+
+    .modal-foto {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--branco);
+      border: 4px solid rgba(255, 255, 255, 0.8);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .modal-foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .modal-foto-iniciais {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--azul-escuro);
+    }
+
+    .modal-nome {
+      font-size: 1.5rem;
+      color: var(--branco);
+      margin-bottom: 0.3rem;
+    }
+
+    .modal-area {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-avaliacao {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: #FFD700;
+      font-size: 0.85rem;
+    }
+
+    .modal-corpo {
+      padding: 2rem;
+    }
+
+    .modal-abas {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--azul-claro);
+      padding-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .modal-aba-btn {
+      background: none;
+      border: none;
+      padding: 0.4rem 1rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--cinza-claro);
+      border-radius: 20px;
+      transition: all var(--transicao);
+    }
+
+    .modal-aba-btn.ativa {
+      background: var(--azul-claro);
+      color: var(--azul-escuro);
+    }
+
+    .modal-aba-conteudo {
+      display: none;
+    }
+
+    .modal-aba-conteudo.ativa {
+      display: block;
+    }
+
+    .info-linha {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      margin-bottom: 0.9rem;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .info-linha i {
+      color: var(--azul-medio);
+      width: 16px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+  </style>
+</body>
+
+</html>
